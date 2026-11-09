@@ -1,0 +1,2175 @@
+{
+    "configuracao": {
+        "chat_model": "llama3:latest",
+        "embed_model": "mxbai-embed-large:latest",
+        "chunks_file": "final/chunks.json",
+        "n_chunks": 31,
+        "dataset_file": "evaluation_dataset.json",
+        "top_k": 3,
+        "sem_rag": false,
+        "temperature": 0.2,
+        "max_tokens": 1000,
+        "system_prompt": "\nVocê é um assistente especializado nas regras de matrícula da universidade.\n\nRegras:\n- Responda apenas com base nos trechos recuperados do regulamento.\n- Se a resposta não estiver claramente presente, diga:\n  \"Não encontrei essa informação de forma explícita no regulamento fornecido.\"\n- Não invente regras, prazos, exceções ou interpretações não presentes no texto.\n- Sempre que possível, mencione o artigo relevante.\n- Responda em português claro e objetivo.\n"
+    },
+    "metricas_finais": {
+        "total_perguntas": 56,
+        "recall_at_k_medio": 0.6607142857142857,
+        "mrr_medio": 0.5595238095238095,
+        "keyword_recall_medio": 0.5897576460961025,
+        "latencia_media_s": 1.7533646678618555,
+        "recall_at_k_desvio": 0.4734669136986733,
+        "mrr_desvio": 0.4447986117207001,
+        "keyword_recall_desvio": 0.3086584324496493
+    },
+    "resultados": [
+        {
+            "pergunta": "Como funciona a matrícula para alunos ingressantes?",
+            "resposta_esperada": "A matrícula no primeiro quadrimestre letivo de alunos ingressantes é realizada automaticamente pela Pró-Reitoria de Graduação (ProGrad).",
+            "resposta_modelo": "Segundo o regulamento, a matrícula para alunos ingressantes funciona da seguinte maneira:\n\n* No primeiro quadrimestre letivo, a matrícula é efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad) para os alunos ingressantes regulares.\n* A partir do segundo período letivo, o(a) discente será responsável por selecionar e matricular-se em disciplinas e respectivas turmas ofertadas, de acordo com o processo de alocação e o planejamento de oferta de disciplinas.\n* No segundo quadrimestre letivo do(a) ingressante, ele(a) terá reserva de matrícula nas disciplinas obrigatórias previstas, considerando o mesmo turno de ingresso e de acordo com o projeto pedagógico do seu curso de ingresso.\n\nArt. 2º do regulamento não foi mencionado, pois a pergunta se refere especificamente à matrícula para alunos ingressantes.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§2º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 1,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 1º",
+                    "score": 0.7451210021972656,
+                    "texto": "Art. 1º Estabelecer normas para a solicitação e cancelamento de matrículas em disciplinas\nda graduação na UFABC.\n§1º A solicitação da matrícula em disciplinas será feita pelo(a) aluno(a) regular, a cada\nperíodo letivo nos prazos definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos,\nobservadas as regras desta Resolução.\n§2º A matrícula em disciplinas no primeiro quadrimestre letivo de alunos(as) regulares\ningressantes será efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad).\n§3º A partir do segundo período letivo, o(a) discente será responsável por selecionar e\nmatricular-se em disciplinas e respectivas turmas ofertadas de acordo com o processo de alocação e o\nplanejamento de oferta de disciplinas.\n§4º No segundo quadrimestre letivo do(a) ingressante, ele(a) terá reserva de matrícula\nnas disciplinas obrigatórias previstas, considerando o mesmo turno de ingresso e de acordo com o\nprojeto pedagógico do seu curso de ingresso, sendo que o preenchimento das vagas reservadas por\nturma dar-se-á por ordem de chegada."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7240784764289856,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7208036184310913,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.9166666666666666
+            },
+            "latencia_retrieval_s": 0.017979800002649426,
+            "latencia_total_s": 3.57871889998205
+        },
+        {
+            "pergunta": "O que acontece com a matrícula após o primeiro período do aluno?",
+            "resposta_esperada": "A partir do segundo período letivo, o aluno é responsável por selecionar e se matricular nas disciplinas e turmas ofertadas.",
+            "resposta_modelo": "Com base nos trechos recuperados do regulamento, não há informações explícitas sobre o que acontece com a matrícula após o primeiro período do aluno.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§3º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7586835622787476,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7495165467262268,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.7279189825057983,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.18181818181818182
+            },
+            "latencia_retrieval_s": 0.01635209994856268,
+            "latencia_total_s": 0.7029557999921963
+        },
+        {
+            "pergunta": "O aluno ingressante tem alguma vantagem no segundo quadrimestre?",
+            "resposta_esperada": "Sim, no segundo quadrimestre o aluno ingressante tem reserva de matrícula nas disciplinas obrigatórias do curso, respeitando o turno e o projeto pedagógico.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§4º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7234976887702942,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 10,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 10",
+                    "score": 0.6840366125106812,
+                    "texto": "Art. 10 Nas matrículas em disciplinas ofertadas pelos cursos interdisciplinares de\ningresso, os(as) discentes serão alocados(as) nas vagas considerando os parâmetros\nordenados como segue:\nI - Curso interdisciplinar de ingresso para o qual a disciplina seja obrigatória;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente."
+                },
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.6635293364524841,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.0
+            },
+            "latencia_retrieval_s": 0.01864620007108897,
+            "latencia_total_s": 0.4359694999875501
+        },
+        {
+            "pergunta": "Como são preenchidas as vagas reservadas para ingressantes?",
+            "resposta_esperada": "O preenchimento das vagas reservadas ocorre por ordem de chegada.",
+            "resposta_modelo": "As vagas reservadas para ingressantes são preenchidas de acordo com o Art. 12. Segundo esse artigo, 20% das vagas são reservadas para discentes que não possuam vínculo com o curso de formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC. A ordem de preferência para preencher essas vagas é a seguinte:\n\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que colou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo ou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem vínculo ou que colou grau, em ordem decrescente.\n\nSe houver vagas remanescentes, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§4º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.6840032339096069,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.6760493516921997,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.6480563879013062,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 0.01702179992571473,
+            "latencia_total_s": 4.143958700005896
+        },
+        {
+            "pergunta": "Posso me matricular em qualquer disciplina da graduação?",
+            "resposta_esperada": "Sim, a solicitação de matrícula pode ser feita para qualquer disciplina ofertada, mas está sujeita a critérios de acesso e distribuição de vagas.",
+            "resposta_modelo": "Não, você não pode se matricular em qualquer disciplina da graduação. O regulamento estabelece que a matrícula em disciplinas deve ser feita dentro das fases e prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos (Art. 5º, ID 5). Além disso, a alocação em disciplinas ofertadas por cursos interdisciplinares de ingresso ou cursos de formação específica segue parâmetros específicos (Art. 10 e Art. 11, ID 10 e ID 11).",
+            "artigos_esperados": [
+                "Art. 2º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7753101587295532,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 10,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 10",
+                    "score": 0.7672213912010193,
+                    "texto": "Art. 10 Nas matrículas em disciplinas ofertadas pelos cursos interdisciplinares de\ningresso, os(as) discentes serão alocados(as) nas vagas considerando os parâmetros\nordenados como segue:\nI - Curso interdisciplinar de ingresso para o qual a disciplina seja obrigatória;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente."
+                },
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.7646298408508301,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.35714285714285715
+            },
+            "latencia_retrieval_s": 0.017685100086964667,
+            "latencia_total_s": 2.1995222000405192
+        },
+        {
+            "pergunta": "A matrícula é sempre garantida quando solicitada?",
+            "resposta_esperada": "Não, o deferimento da matrícula depende de critérios de acesso e da distribuição das vagas disponíveis.",
+            "resposta_modelo": "Não, a matrícula não é sempre garantida quando solicitada. De acordo com o Art. 5º do regulamento, o discente que não solicitar sua matrícula em disciplinas de acordo com as fases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o direito de matrícula no período letivo em questão. Além disso, a solicitação de matrícula excepcional, prevista no Art. 25, tem suas próprias condições de elegibilidade e prazos estabelecidos.",
+            "artigos_esperados": [
+                "Art. 2º",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8288981914520264,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.8049252033233643,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7954386472702026,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.125
+            },
+            "latencia_retrieval_s": 0.015550500014796853,
+            "latencia_total_s": 2.2742352000204846
+        },
+        {
+            "pergunta": "Quantas fases existem no processo de matrícula?",
+            "resposta_esperada": "O processo de matrícula ocorre em três fases: matrícula, ajuste de matrícula e reajuste de matrícula.",
+            "resposta_modelo": "Segundo o regulamento, o processo de matrícula ocorre em três fases: matrículas em disciplinas, ajuste de matrícula em disciplinas e reajuste de matrícula em disciplinas (Art. 3º, §1º a §3º do regulamento).",
+            "artigos_esperados": [
+                "Art. 3º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7969301342964172,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 3,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 3º",
+                    "score": 0.7647532224655151,
+                    "texto": "Art. 3º O processo de solicitação de matrículas nas disciplinas da graduação da UFABC\nocorre em três fases: matrículas em disciplinas, ajuste de matrícula em disciplinas e reajuste de\nmatrícula em disciplinas.\n§1º As matrículas em disciplinas correspondem à primeira fase em que são ofertadas\ntodas as vagas previstas pelo planejamento de oferta.\n§2º O ajuste de matrícula em disciplinas corresponde à segunda fase em que são\nofertadas as vagas remanescentes da primeira fase, mais as vagas resultantes da abertura de novas\nturmas e/ou de expansão de oferta das vagas inicialmente previstas.\n§3º O reajuste de matrícula em disciplinas corresponde à terceira fase em que são\nofertadas as vagas remanescentes da segunda fase de matrículas, mais as vagas resultantes dos\ncancelamentos de matrículas em disciplinas realizados na primeira semana do quadrimestre."
+                },
+                {
+                    "id": 4,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 4º",
+                    "score": 0.7528343200683594,
+                    "texto": "Art. 4º As fases de matrícula são independentes, não sendo obrigatório que o(a) discente\nparticipe de todas elas.\nParágrafo único. Em todas as fases, será considerada como válida apenas a última\nsolicitação de matrículas efetivada e salva no sistema de matrículas."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 1.0
+            },
+            "latencia_retrieval_s": 0.015269999974407256,
+            "latencia_total_s": 1.2418707000324503
+        },
+        {
+            "pergunta": "Quais são as fases do processo de matrícula?",
+            "resposta_esperada": "As fases são: matrícula em disciplinas, ajuste de matrícula em disciplinas e reajuste de matrícula em disciplinas.",
+            "resposta_modelo": "De acordo com o regulamento, o processo de matrícula ocorre em três fases:\n\n1. Matrículas em disciplinas (primeira fase);\n2. Ajuste de matrícula em disciplinas (segunda fase);\n3. Reajuste de matrícula em disciplinas (terceira fase).\n\nEssas fases são independentes, e o(a) discente não está obrigado a participar de todas elas. Além disso, apenas a última solicitação de matrículas efetivada e salva no sistema de matrículas será considerada válida.",
+            "artigos_esperados": [
+                "Art. 3º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.8170134425163269,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 3,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 3º",
+                    "score": 0.7657247185707092,
+                    "texto": "Art. 3º O processo de solicitação de matrículas nas disciplinas da graduação da UFABC\nocorre em três fases: matrículas em disciplinas, ajuste de matrícula em disciplinas e reajuste de\nmatrícula em disciplinas.\n§1º As matrículas em disciplinas correspondem à primeira fase em que são ofertadas\ntodas as vagas previstas pelo planejamento de oferta.\n§2º O ajuste de matrícula em disciplinas corresponde à segunda fase em que são\nofertadas as vagas remanescentes da primeira fase, mais as vagas resultantes da abertura de novas\nturmas e/ou de expansão de oferta das vagas inicialmente previstas.\n§3º O reajuste de matrícula em disciplinas corresponde à terceira fase em que são\nofertadas as vagas remanescentes da segunda fase de matrículas, mais as vagas resultantes dos\ncancelamentos de matrículas em disciplinas realizados na primeira semana do quadrimestre."
+                },
+                {
+                    "id": 4,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 4º",
+                    "score": 0.7577337026596069,
+                    "texto": "Art. 4º As fases de matrícula são independentes, não sendo obrigatório que o(a) discente\nparticipe de todas elas.\nParágrafo único. Em todas as fases, será considerada como válida apenas a última\nsolicitação de matrículas efetivada e salva no sistema de matrículas."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 1.0
+            },
+            "latencia_retrieval_s": 0.013541299966163933,
+            "latencia_total_s": 2.33360650006216
+        },
+        {
+            "pergunta": "O que acontece na primeira fase da matrícula?",
+            "resposta_esperada": "Na primeira fase são ofertadas todas as vagas previstas no planejamento de oferta de disciplinas.",
+            "resposta_modelo": "Segundo o regulamento, não há informações específicas sobre o que acontece na primeira fase da matrícula. O Art. 4º do regulamento apenas define as fases de matrícula como independentes e não obrigatórias, e o Art. 5º menciona que o discente que não solicitar sua matrícula em disciplinas de acordo com as fases nos prazos previstos perderá o direito de matrícula no período letivo em questão. Portanto, não encontrei essa informação de forma explícita no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 3º",
+                "§1º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7741945385932922,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7692663073539734,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 4,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 4º",
+                    "score": 0.7525861263275146,
+                    "texto": "Art. 4º As fases de matrícula são independentes, não sendo obrigatório que o(a) discente\nparticipe de todas elas.\nParágrafo único. Em todas as fases, será considerada como válida apenas a última\nsolicitação de matrículas efetivada e salva no sistema de matrículas."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3
+            },
+            "latencia_retrieval_s": 0.016310100094415247,
+            "latencia_total_s": 2.2492029999848455
+        },
+        {
+            "pergunta": "O que acontece na fase de ajuste de matrícula?",
+            "resposta_esperada": "Na fase de ajuste são ofertadas as vagas remanescentes da primeira fase, além de vagas de novas turmas ou expansão de oferta.",
+            "resposta_modelo": "Segundo o regulamento, na fase de ajuste de matrícula (reajuste de matrículas), o(a) discente pode apenas incluir disciplinas à sua programação de matrículas nos horários disponíveis em sua grade, e não será possível excluir disciplinas (Art. 21).",
+            "artigos_esperados": [
+                "Art. 3º",
+                "§2º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8091508746147156,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7973005771636963,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.779423713684082,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.21428571428571427
+            },
+            "latencia_retrieval_s": 0.01726800005417317,
+            "latencia_total_s": 1.2396554000442848
+        },
+        {
+            "pergunta": "Quando o aluno faz a solicitação de matrícula?",
+            "resposta_esperada": "A solicitação é feita a cada período letivo, dentro dos prazos definidos pelo calendário administrativo-acadêmico.",
+            "resposta_modelo": "De acordo com o regulamento, não há um trecho específico que indique quando o aluno faz a solicitação de matrícula. No entanto, é mencionado que a solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos cursos de graduação da UFABC (Art. 2º, Capítulo I).\n\nAlém disso, é estabelecido que o(A) discente que não solicitar sua matrícula em disciplinas de acordo com as fases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o direito de matrícula no período letivo em questão (Art. 5º, Capítulo II).\n\nPortanto, não encontrei essa informação de forma explícita no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§1º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7980892658233643,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 2,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 2º",
+                    "score": 0.7892938256263733,
+                    "texto": "Art. 2º A solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos\ncursos de graduação da UFABC.\nParágrafo único. O deferimento da solicitação de matrículas está sujeito a critérios de\nacesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e\nV desta Resolução."
+                },
+                {
+                    "id": 9,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 9º",
+                    "score": 0.78680419921875,
+                    "texto": "Art. 9º A efetivação da solicitação da matrícula na primeira fase de matrículas estará\nsujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos\nlimites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.6363636363636364
+            },
+            "latencia_retrieval_s": 0.01660760003142059,
+            "latencia_total_s": 3.1178966000443324
+        },
+        {
+            "pergunta": "Quem é responsável por realizar a matrícula após o primeiro período?",
+            "resposta_esperada": "O próprio aluno é responsável por selecionar e realizar sua matrícula nas disciplinas.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido. O regulamento apenas trata das fases de matrícula e das condições para o deferimento de solicitações, mas não menciona quem é responsável por realizar a matrícula após o primeiro período.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§3º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7838437557220459,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7760747671127319,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 18,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 18",
+                    "score": 0.7582142353057861,
+                    "texto": "Art. 18 A efetivação da solicitação da matrícula na segunda e na terceira fase de\nmatrículas também estará sujeita ao limite de vagas nas turmas ofertadas conforme planejamento\nacadêmico, assim como aos limites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.375
+            },
+            "latencia_retrieval_s": 0.017016500001773238,
+            "latencia_total_s": 1.192298199981451
+        },
+        {
+            "pergunta": "A matrícula depende de algum planejamento?",
+            "resposta_esperada": "Sim, a matrícula depende do planejamento de oferta de disciplinas e do processo de alocação.",
+            "resposta_modelo": "Não, a matrícula não depende de algum planejamento, pois não há menção a planejamento em qualquer dos trechos fornecidos.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§3º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.7605706453323364,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.7589705586433411,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                },
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.7422322630882263,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.42857142857142855
+            },
+            "latencia_retrieval_s": 0.01324270002078265,
+            "latencia_total_s": 0.668970700004138
+        },
+        {
+            "pergunta": "O que regula os prazos de matrícula?",
+            "resposta_esperada": "Os prazos são definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos.",
+            "resposta_modelo": "A resposta para essa pergunta está presente no regulamento.\n\nDe acordo com o Art. 5º do CAPÍTULO II, as fases para a solicitação de matrículas são previstas pelo Calendário de Procedimentos Administrativo Acadêmicos. Além disso, o Art. 7º do CAPÍTULO III estabelece que o(a) discente deve acessar o sistema de matrículas e indicar as turmas em que requisitará matrícula no prazo estipulado pelo Calendário de Procedimentos Administrativo Acadêmicos.\n\nPortanto, os prazos de matrícula são regulados pelo Calendário de Procedimentos Administrativo Acadêmicos, como mencionado nos Art. 5º e 7º.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§1º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.8176657557487488,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                },
+                {
+                    "id": 7,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 7º",
+                    "score": 0.8175286054611206,
+                    "texto": "Art. 7º No prazo estipulado pelo Calendário de Procedimentos Administrativo\nAcadêmicos, o(a) discente deverá acessar o sistema de matrículas e indicar aquelas turmas em que\nrequisitará matrícula."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8034462332725525,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.7142857142857143
+            },
+            "latencia_retrieval_s": 0.014478700002655387,
+            "latencia_total_s": 2.9798275000648573
+        },
+        {
+            "pergunta": "A matrícula inicial do ingressante exige ação do aluno?",
+            "resposta_esperada": "Não, a matrícula inicial do ingressante é feita automaticamente pela ProGrad.",
+            "resposta_modelo": "A matrícula inicial do ingressante não exige ação do aluno, pois, segundo o Art. 2º do Capítulo I, a matrícula em disciplinas no primeiro quadrimestre letivo de alunos(as) regulares ingressantes será efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad).",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§2º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7896810173988342,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 1,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 1º",
+                    "score": 0.7693727016448975,
+                    "texto": "Art. 1º Estabelecer normas para a solicitação e cancelamento de matrículas em disciplinas\nda graduação na UFABC.\n§1º A solicitação da matrícula em disciplinas será feita pelo(a) aluno(a) regular, a cada\nperíodo letivo nos prazos definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos,\nobservadas as regras desta Resolução.\n§2º A matrícula em disciplinas no primeiro quadrimestre letivo de alunos(as) regulares\ningressantes será efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad).\n§3º A partir do segundo período letivo, o(a) discente será responsável por selecionar e\nmatricular-se em disciplinas e respectivas turmas ofertadas de acordo com o processo de alocação e o\nplanejamento de oferta de disciplinas.\n§4º No segundo quadrimestre letivo do(a) ingressante, ele(a) terá reserva de matrícula\nnas disciplinas obrigatórias previstas, considerando o mesmo turno de ingresso e de acordo com o\nprojeto pedagógico do seu curso de ingresso, sendo que o preenchimento das vagas reservadas por\nturma dar-se-á por ordem de chegada."
+                },
+                {
+                    "id": 10,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 10",
+                    "score": 0.7677084803581238,
+                    "texto": "Art. 10 Nas matrículas em disciplinas ofertadas pelos cursos interdisciplinares de\ningresso, os(as) discentes serão alocados(as) nas vagas considerando os parâmetros\nordenados como segue:\nI - Curso interdisciplinar de ingresso para o qual a disciplina seja obrigatória;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.8571428571428571
+            },
+            "latencia_retrieval_s": 0.016481800004839897,
+            "latencia_total_s": 1.3193876000586897
+        },
+        {
+            "pergunta": "O aluno precisa participar de todas as fases de matrícula?",
+            "resposta_esperada": "Não, as fases de matrícula são independentes e o aluno não é obrigado a participar de todas elas.",
+            "resposta_modelo": "Não é necessário que o aluno participe de todas as fases de matrícula. De acordo com o Art. 4º do regulamento, as fases de matrícula são independentes e não é obrigatório que o(a) discente participe de todas elas.",
+            "artigos_esperados": [
+                "Art. 4º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7950812578201294,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 4,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 4º",
+                    "score": 0.7938420176506042,
+                    "texto": "Art. 4º As fases de matrícula são independentes, não sendo obrigatório que o(a) discente\nparticipe de todas elas.\nParágrafo único. Em todas as fases, será considerada como válida apenas a última\nsolicitação de matrículas efetivada e salva no sistema de matrículas."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7216575145721436,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.7777777777777778
+            },
+            "latencia_retrieval_s": 0.01841759996023029,
+            "latencia_total_s": 1.2638304999563843
+        },
+        {
+            "pergunta": "Qual solicitação de matrícula é considerada válida em cada fase?",
+            "resposta_esperada": "Apenas a última solicitação de matrícula efetivada e salva no sistema é considerada válida.",
+            "resposta_modelo": "A solicitação de matrícula considerada válida em cada fase não está explicitamente definida no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 4º",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 2,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 2º",
+                    "score": 0.8413383960723877,
+                    "texto": "Art. 2º A solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos\ncursos de graduação da UFABC.\nParágrafo único. O deferimento da solicitação de matrículas está sujeito a critérios de\nacesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e\nV desta Resolução."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.8196059465408325,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.8126165270805359,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.4444444444444444
+            },
+            "latencia_retrieval_s": 0.016413900069892406,
+            "latencia_total_s": 0.5755261000012979
+        },
+        {
+            "pergunta": "O que acontece se o aluno não solicitar matrícula no prazo?",
+            "resposta_esperada": "O aluno perde o direito de matrícula no período letivo em questão.",
+            "resposta_modelo": "Segundo o Art. 5º do regulamento, o aluno que não solicitar sua matrícula em disciplinas de acordo com as fases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o direito de matrícula no período letivo em questão.",
+            "artigos_esperados": [
+                "Art. 5º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8077820539474487,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 9,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 9º",
+                    "score": 0.7843053936958313,
+                    "texto": "Art. 9º A efetivação da solicitação da matrícula na primeira fase de matrículas estará\nsujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos\nlimites de créditos previstos pelo Art. 8º."
+                },
+                {
+                    "id": 2,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 2º",
+                    "score": 0.7823934555053711,
+                    "texto": "Art. 2º A solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos\ncursos de graduação da UFABC.\nParágrafo único. O deferimento da solicitação de matrículas está sujeito a critérios de\nacesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e\nV desta Resolução."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8571428571428571
+            },
+            "latencia_retrieval_s": 0.01777449995279312,
+            "latencia_total_s": 1.265110999927856
+        },
+        {
+            "pergunta": "Quais são as condições para o aluno participar do processo de matrícula?",
+            "resposta_esperada": "O aluno deve estar com status de matrícula ativo e não pode ter trancamento previsto para o quadrimestre.",
+            "resposta_modelo": "Para o aluno participar do processo de matrícula, é necessário que ele esteja com seu status de matrícula ativo e não tenha trancamento previsto para o quadrimestre para o qual solicita matrículas (Art. 6º, ID 6).\n\nAlém disso, não há restrições adicionais mencionadas no regulamento para o aluno participar do processo de matrícula.",
+            "artigos_esperados": [
+                "Art. 6º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.8363474011421204,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 4,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 4º",
+                    "score": 0.7728395462036133,
+                    "texto": "Art. 4º As fases de matrícula são independentes, não sendo obrigatório que o(a) discente\nparticipe de todas elas.\nParágrafo único. Em todas as fases, será considerada como válida apenas a última\nsolicitação de matrículas efetivada e salva no sistema de matrículas."
+                },
+                {
+                    "id": 1,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 1º",
+                    "score": 0.7541642785072327,
+                    "texto": "Art. 1º Estabelecer normas para a solicitação e cancelamento de matrículas em disciplinas\nda graduação na UFABC.\n§1º A solicitação da matrícula em disciplinas será feita pelo(a) aluno(a) regular, a cada\nperíodo letivo nos prazos definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos,\nobservadas as regras desta Resolução.\n§2º A matrícula em disciplinas no primeiro quadrimestre letivo de alunos(as) regulares\ningressantes será efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad).\n§3º A partir do segundo período letivo, o(a) discente será responsável por selecionar e\nmatricular-se em disciplinas e respectivas turmas ofertadas de acordo com o processo de alocação e o\nplanejamento de oferta de disciplinas.\n§4º No segundo quadrimestre letivo do(a) ingressante, ele(a) terá reserva de matrícula\nnas disciplinas obrigatórias previstas, considerando o mesmo turno de ingresso e de acordo com o\nprojeto pedagógico do seu curso de ingresso, sendo que o preenchimento das vagas reservadas por\nturma dar-se-á por ordem de chegada."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.6363636363636364
+            },
+            "latencia_retrieval_s": 0.016586799989454448,
+            "latencia_total_s": 1.6588585999561474
+        },
+        {
+            "pergunta": "Como o aluno solicita matrícula nas disciplinas?",
+            "resposta_esperada": "O aluno deve acessar o sistema de matrículas e indicar as turmas desejadas dentro do prazo estipulado.",
+            "resposta_modelo": "De acordo com o regulamento, o aluno solicita matrícula nas disciplinas de acordo com as seguintes regras:\n\n* A solicitação da matrícula em disciplinas será feita pelo(a) aluno(a) regular, a cada período letivo, nos prazos definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos (Art. 1º, §1º).\n* No primeiro quadrimestre letivo, a matrícula em disciplinas dos alunos(as) regulares ingressantes será efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad) (Art. 1º, §2º).\n* A partir do segundo período letivo, o(a) discente será responsável por selecionar e matricular-se em disciplinas e respectivas turmas ofertadas, de acordo com o processo de alocação e o planejamento de oferta de disciplinas (Art. 1º, §3º).\n\nPortanto, o aluno solicita matrícula nas disciplinas no período letivo correspondente, seja automaticamente no primeiro quadrimestre letivo ou mediante seleção e matrícula própria a partir do segundo período letivo.",
+            "artigos_esperados": [
+                "Art. 7º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8215728402137756,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 2,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 2º",
+                    "score": 0.8087716698646545,
+                    "texto": "Art. 2º A solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos\ncursos de graduação da UFABC.\nParágrafo único. O deferimento da solicitação de matrículas está sujeito a critérios de\nacesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e\nV desta Resolução."
+                },
+                {
+                    "id": 1,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 1º",
+                    "score": 0.7992435097694397,
+                    "texto": "Art. 1º Estabelecer normas para a solicitação e cancelamento de matrículas em disciplinas\nda graduação na UFABC.\n§1º A solicitação da matrícula em disciplinas será feita pelo(a) aluno(a) regular, a cada\nperíodo letivo nos prazos definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos,\nobservadas as regras desta Resolução.\n§2º A matrícula em disciplinas no primeiro quadrimestre letivo de alunos(as) regulares\ningressantes será efetuada automaticamente pela Pró-Reitoria de Graduação (ProGrad).\n§3º A partir do segundo período letivo, o(a) discente será responsável por selecionar e\nmatricular-se em disciplinas e respectivas turmas ofertadas de acordo com o processo de alocação e o\nplanejamento de oferta de disciplinas.\n§4º No segundo quadrimestre letivo do(a) ingressante, ele(a) terá reserva de matrícula\nnas disciplinas obrigatórias previstas, considerando o mesmo turno de ingresso e de acordo com o\nprojeto pedagógico do seu curso de ingresso, sendo que o preenchimento das vagas reservadas por\nturma dar-se-á por ordem de chegada."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.18181818181818182
+            },
+            "latencia_retrieval_s": 0.015336099895648658,
+            "latencia_total_s": 4.433222199906595
+        },
+        {
+            "pergunta": "Existe limite de créditos que o aluno pode cursar?",
+            "resposta_esperada": "Sim, o aluno pode solicitar matrícula até o limite de C = 20 + 2CA créditos por quadrimestre.",
+            "resposta_modelo": "Sim, existe um limite de créditos que o aluno pode cursar. De acordo com o Art. 8º, o aluno pode solicitar matrícula até o limite máximo de \"C = 20 + 2CA\" créditos por quadrimestre letivo.",
+            "artigos_esperados": [
+                "Art. 8º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.7736047506332397,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                },
+                {
+                    "id": 20,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 20",
+                    "score": 0.7435842156410217,
+                    "texto": "Art. 20 No ajuste de matrículas, o(a) discente poderá excluir disciplinas ou incluir\ndisciplinas nos horários disponíveis em sua grade, desde que não ultrapasse os limites de créditos\nprevistos pelo Art. 8º.\nParágrafo único. O(A) discente que teve sua matrícula deferida em turmas com\nsolicitações igual ou superior a 150% (cento e cinquenta por cento) do número de vagas disponíveis não\npoderá excluí-la no ajuste de matrículas."
+                },
+                {
+                    "id": 9,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 9º",
+                    "score": 0.7234020233154297,
+                    "texto": "Art. 9º A efetivação da solicitação da matrícula na primeira fase de matrículas estará\nsujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos\nlimites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 1.0
+            },
+            "latencia_retrieval_s": 0.017331199953332543,
+            "latencia_total_s": 1.0866583000170067
+        },
+        {
+            "pergunta": "O que acontece se o cálculo de créditos resultar em número decimal?",
+            "resposta_esperada": "O valor deve ser arredondado para o próximo número inteiro superior.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido. O regulamento não aborda o caso específico de cálculo de créditos resultando em número decimal.",
+            "artigos_esperados": [
+                "Art. 8º",
+                "§2º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.7710331678390503,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                },
+                {
+                    "id": 20,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 20",
+                    "score": 0.7251670956611633,
+                    "texto": "Art. 20 No ajuste de matrículas, o(a) discente poderá excluir disciplinas ou incluir\ndisciplinas nos horários disponíveis em sua grade, desde que não ultrapasse os limites de créditos\nprevistos pelo Art. 8º.\nParágrafo único. O(A) discente que teve sua matrícula deferida em turmas com\nsolicitações igual ou superior a 150% (cento e cinquenta por cento) do número de vagas disponíveis não\npoderá excluí-la no ajuste de matrículas."
+                },
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.6514702439308167,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.14285714285714285
+            },
+            "latencia_retrieval_s": 0.017651399946771562,
+            "latencia_total_s": 0.813353699981235
+        },
+        {
+            "pergunta": "Quais créditos não entram no cálculo do limite de créditos?",
+            "resposta_esperada": "Não são incluídos créditos de estágio, TCC, trabalho de graduação e monografias.",
+            "resposta_modelo": "Segundo o Art. 8º, §3º, os créditos correspondentes aos componentes curriculares integralizadores, como Estágio Curricular, Trabalho de Conclusão de Curso (TCC), Trabalho de Graduação (TG) ou Monografias, não entram no cálculo do limite de créditos.",
+            "artigos_esperados": [
+                "Art. 8º",
+                "§3º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.7579787969589233,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                },
+                {
+                    "id": 20,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 20",
+                    "score": 0.7370363473892212,
+                    "texto": "Art. 20 No ajuste de matrículas, o(a) discente poderá excluir disciplinas ou incluir\ndisciplinas nos horários disponíveis em sua grade, desde que não ultrapasse os limites de créditos\nprevistos pelo Art. 8º.\nParágrafo único. O(A) discente que teve sua matrícula deferida em turmas com\nsolicitações igual ou superior a 150% (cento e cinquenta por cento) do número de vagas disponíveis não\npoderá excluí-la no ajuste de matrículas."
+                },
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.6920842528343201,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.75
+            },
+            "latencia_retrieval_s": 0.016746100038290024,
+            "latencia_total_s": 1.3664790000766516
+        },
+        {
+            "pergunta": "O que limita a matrícula na primeira fase?",
+            "resposta_esperada": "A matrícula é limitada pela quantidade de vagas disponíveis e pelo limite de créditos do aluno.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido. O regulamento não menciona limites para a matrícula na primeira fase.",
+            "artigos_esperados": [
+                "Art. 9º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.7738268971443176,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7682433128356934,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 18,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 18",
+                    "score": 0.7660208940505981,
+                    "texto": "Art. 18 A efetivação da solicitação da matrícula na segunda e na terceira fase de\nmatrículas também estará sujeita ao limite de vagas nas turmas ofertadas conforme planejamento\nacadêmico, assim como aos limites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.1
+            },
+            "latencia_retrieval_s": 0.01547240000218153,
+            "latencia_total_s": 0.7187073000241071
+        },
+        {
+            "pergunta": "Quais critérios são usados para alocar alunos em disciplinas interdisciplinares?",
+            "resposta_esperada": "Os critérios incluem curso de ingresso, turno, coeficiente de progressão e coeficiente de aproveitamento.",
+            "resposta_modelo": "Segundo o regulamento, os critérios para alocar alunos em disciplinas interdisciplinares são:\n\nI - Curso interdisciplinar de ingresso para o qual a disciplina seja obrigatória (Art. 10);\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina (Art. 10);\nIII - Coeficiente de Progressão, em ordem decrescente (Art. 10);\nIV - Coeficiente de Aproveitamento, em ordem decrescente (Art. 10).\n\nEsses critérios são aplicados para alocar alunos em disciplinas ofertadas pelos cursos interdisciplinares de ingresso (Art. 10).",
+            "artigos_esperados": [
+                "Art. 10"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 10,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 10",
+                    "score": 0.7813911437988281,
+                    "texto": "Art. 10 Nas matrículas em disciplinas ofertadas pelos cursos interdisciplinares de\ningresso, os(as) discentes serão alocados(as) nas vagas considerando os parâmetros\nordenados como segue:\nI - Curso interdisciplinar de ingresso para o qual a disciplina seja obrigatória;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente."
+                },
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.7465329766273499,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                },
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.7291597723960876,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8888888888888888
+            },
+            "latencia_retrieval_s": 0.01753770001232624,
+            "latencia_total_s": 2.6637403999920934
+        },
+        {
+            "pergunta": "Quais critérios são usados para alocar alunos em cursos de formação específica?",
+            "resposta_esperada": "São considerados vínculo com o curso, turno, coeficiente de progressão e coeficiente de aproveitamento.",
+            "resposta_modelo": "De acordo com o Art. 11 do regulamento, os critérios para alocar alunos em cursos de formação específica são:\n\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a disciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\n\nNão encontrei essa informação de forma explícita nos outros trechos do regulamento fornecidos.",
+            "artigos_esperados": [
+                "Art. 11"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.7417327165603638,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                },
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.73331218957901,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7253075242042542,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8888888888888888
+            },
+            "latencia_retrieval_s": 0.016735599958337843,
+            "latencia_total_s": 2.5836731999879703
+        },
+        {
+            "pergunta": "Existe reserva de vagas para alunos sem vínculo com o curso?",
+            "resposta_esperada": "Sim, 20% das vagas são reservadas para alunos sem vínculo com o curso de formação específica.",
+            "resposta_modelo": "Sim, existe reserva de vagas para alunos sem vínculo com o curso. De acordo com o Art. 12, nas matrículas em disciplinas ofertadas pelos cursos de formação específica, são reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso de formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC.",
+            "artigos_esperados": [
+                "Art. 12"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.6990729570388794,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                },
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.6917417645454407,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 18,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 18",
+                    "score": 0.6825788021087646,
+                    "texto": "Art. 18 A efetivação da solicitação da matrícula na segunda e na terceira fase de\nmatrículas também estará sujeita ao limite de vagas nas turmas ofertadas conforme planejamento\nacadêmico, assim como aos limites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 1.0
+            },
+            "latencia_retrieval_s": 0.016532100038602948,
+            "latencia_total_s": 1.799702599993907
+        },
+        {
+            "pergunta": "Quem tem vaga garantida independentemente dos critérios?",
+            "resposta_esperada": "Pessoas com deficiência, alunos em mobilidade acadêmica e mães com filhos de até 12 anos têm vaga garantida.",
+            "resposta_modelo": "De acordo com o Art. 13 do regulamento, os discentes que têm vaga garantida independentemente dos critérios são:\n\n* Acessibilidade; Discentes cadastrados(as) como PCD (pessoas com deficiência)\n* Discentes de mobilidade acadêmica; no Núcleo de Acessibilidade\n* Discentes cadastradas como mães de crianças com até 12 (doze) anos de idade.\n\nEssas categorias de discentes têm vaga garantida, independentemente dos critérios estipulados nos Artigos 10 e 11.",
+            "artigos_esperados": [
+                "Art. 13"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 13,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 13",
+                    "score": 0.7828242778778076,
+                    "texto": "Art. 13 Terão vaga garantida nas disciplinas que escolherem, independente dos critérios estipulados nos Art. 10 e 11:\nI Acessibilidade; Discentes cadastrados(as) como PCD (pessoas com deficiência)\nII - Discentes de mobilidade acadêmica; no Núcleo de Acessibilidade\nIII - Discentes cadastradas como mães de crianças com até 12 (doze) anos de idade."
+                },
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.7473697662353516,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.7077768445014954,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8181818181818182
+            },
+            "latencia_retrieval_s": 0.01550350000616163,
+            "latencia_total_s": 2.299928200081922
+        },
+        {
+            "pergunta": "O que o aluno pode fazer na fase de ajuste de matrícula?",
+            "resposta_esperada": "O aluno pode incluir ou excluir disciplinas, respeitando o limite de créditos.",
+            "resposta_modelo": "Segundo o regulamento, na fase de ajuste de matrícula, o aluno pode:\n\n* Solicitar sua matrícula em disciplinas da graduação na UFABC, desde que esteja com seu status de matrícula ativo e não tenha trancamento previsto para o quadrimestre para o qual solicita matrículas (Art. 6º, ID 6).\n* Participar da fase de ajuste de matrícula, desde que não tenha perdido o direito de matrícula no período letivo em questão (Art. 5º, ID 5).\n* Solicitar sua matrícula em disciplinas da graduação na UFABC, desde que não seja obrigatório que o(a) discente participe de todas as fases (Art. 4º, ID 4).\n\nÉ importante lembrar que a última solicitação de matrículas efetivada e salva no sistema de matrículas será considerada como válida em todas as fases (Parágrafo único, Art. 4º, ID 4).",
+            "artigos_esperados": [
+                "Art. 20"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7707589864730835,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.756331205368042,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 4,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 4º",
+                    "score": 0.7415635585784912,
+                    "texto": "Art. 4º As fases de matrícula são independentes, não sendo obrigatório que o(a) discente\nparticipe de todas elas.\nParágrafo único. Em todas as fases, será considerada como válida apenas a última\nsolicitação de matrículas efetivada e salva no sistema de matrículas."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.375
+            },
+            "latencia_retrieval_s": 0.018271500011906028,
+            "latencia_total_s": 4.079537500045262
+        },
+        {
+            "pergunta": "O que o aluno pode fazer na fase de reajuste de matrícula?",
+            "resposta_esperada": "O aluno pode apenas incluir disciplinas, não sendo permitido excluir.",
+            "resposta_modelo": "De acordo com o Art. 21, no reajuste de matrículas, o aluno pode apenas incluir disciplinas à sua programação de matrículas nos horários disponíveis em sua grade. Não será possível excluir disciplinas durante essa fase.",
+            "artigos_esperados": [
+                "Art. 21"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.7647317051887512,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.7606662511825562,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7460732460021973,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.75
+            },
+            "latencia_retrieval_s": 0.024377900059334934,
+            "latencia_total_s": 1.0360557000385597
+        },
+        {
+            "pergunta": "Até quando o aluno pode cancelar uma matrícula em disciplina?",
+            "resposta_esperada": "O cancelamento deve ser solicitado até o final da primeira semana do quadrimestre.",
+            "resposta_modelo": "Até quando o aluno pode cancelar uma matrícula em disciplina?\n\nDe acordo com o Art. 23 do regulamento, o(a) discente terá direito ao cancelamento de quaisquer matrículas em disciplinas a cada quadrimestre letivo, desde que atendidas as seguintes condições. A solicitação de cancelamento deve ser feita até o final da primeira semana do quadrimestre letivo, indicando a sua motivação (Art. 23, I).\n\nPortanto, o aluno pode cancelar uma matrícula em disciplina até o final da primeira semana do quadrimestre letivo.",
+            "artigos_esperados": [
+                "Art. 23"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.8468266129493713,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.821889340877533,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                },
+                {
+                    "id": 23,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 23",
+                    "score": 0.8112090826034546,
+                    "texto": "Art. 23 O(A) discente terá direito ao cancelamento de quaisquer matrículas em disciplinas\na cada quadrimestre letivo, desde que atendidas as seguintes condições:\nI - A solicitação de cancelamento deverá ser feita até o final da primeira semana do\nquadrimestre letivo, indicando a sua motivação;\nII - O(A) discente só poderá cancelar uma mesma disciplina uma única vez;\nIII - O(A) discente não poderá cancelar a matrícula de disciplinas em que tenha sido\nanteriormente reprovado(a) por frequência.\n§1º O(A) discente que após o cancelamento ficar sem nenhuma matrícula em disciplinas\nterá o quadrimestre computado no seu prazo máximo de progressão e integralização, podendo incorrer\nem desligamento por decurso de prazo.\n§2º Caso o(a) discente repita a condição do §1º por mais de um quadrimestre, poderá ter\nsua matrícula eliminada, no caso de aluno regular ingressante, ou incorrer em abandono, no caso de\naluno regular efetivo."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.3333333333333333,
+                "keyword_recall": 0.8571428571428571
+            },
+            "latencia_retrieval_s": 0.021020099986344576,
+            "latencia_total_s": 2.4165130999172106
+        },
+        {
+            "pergunta": "O aluno pode cancelar a mesma disciplina mais de uma vez?",
+            "resposta_esperada": "Não, o aluno só pode cancelar uma mesma disciplina uma única vez.",
+            "resposta_modelo": "Não é possível cancelar a mesma disciplina mais de uma vez, pois Art. 23, III do regulamento estabelece que o(a) discente só poderá cancelar uma mesma disciplina uma única vez.",
+            "artigos_esperados": [
+                "Art. 23"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.7758001089096069,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 23,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 23",
+                    "score": 0.7727981209754944,
+                    "texto": "Art. 23 O(A) discente terá direito ao cancelamento de quaisquer matrículas em disciplinas\na cada quadrimestre letivo, desde que atendidas as seguintes condições:\nI - A solicitação de cancelamento deverá ser feita até o final da primeira semana do\nquadrimestre letivo, indicando a sua motivação;\nII - O(A) discente só poderá cancelar uma mesma disciplina uma única vez;\nIII - O(A) discente não poderá cancelar a matrícula de disciplinas em que tenha sido\nanteriormente reprovado(a) por frequência.\n§1º O(A) discente que após o cancelamento ficar sem nenhuma matrícula em disciplinas\nterá o quadrimestre computado no seu prazo máximo de progressão e integralização, podendo incorrer\nem desligamento por decurso de prazo.\n§2º Caso o(a) discente repita a condição do §1º por mais de um quadrimestre, poderá ter\nsua matrícula eliminada, no caso de aluno regular ingressante, ou incorrer em abandono, no caso de\naluno regular efetivo."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.7719421982765198,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.7142857142857143
+            },
+            "latencia_retrieval_s": 0.021550699952058494,
+            "latencia_total_s": 0.9021282999310642
+        },
+        {
+            "pergunta": "O que acontece se o aluno ficar sem disciplinas após cancelamento?",
+            "resposta_esperada": "O quadrimestre será contabilizado no prazo máximo e pode levar ao desligamento por decurso de prazo.",
+            "resposta_modelo": "Segundo o regulamento, se o aluno cancelar todas as suas disciplinas após o cancelamento, o quadrimestre letivo será computado no seu prazo máximo de progressão e integralização, podendo incorrer em desligamento por decurso de prazo (Art. 23, §1º). Se isso ocorrer por mais de um quadrimestre, o aluno regular ingressante pode ter sua matrícula eliminada, e o aluno regular efetivo pode incorrer em abandono (Art. 23, §2º).",
+            "artigos_esperados": [
+                "Art. 23",
+                "§1º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.7895335555076599,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                },
+                {
+                    "id": 23,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 23",
+                    "score": 0.7826208472251892,
+                    "texto": "Art. 23 O(A) discente terá direito ao cancelamento de quaisquer matrículas em disciplinas\na cada quadrimestre letivo, desde que atendidas as seguintes condições:\nI - A solicitação de cancelamento deverá ser feita até o final da primeira semana do\nquadrimestre letivo, indicando a sua motivação;\nII - O(A) discente só poderá cancelar uma mesma disciplina uma única vez;\nIII - O(A) discente não poderá cancelar a matrícula de disciplinas em que tenha sido\nanteriormente reprovado(a) por frequência.\n§1º O(A) discente que após o cancelamento ficar sem nenhuma matrícula em disciplinas\nterá o quadrimestre computado no seu prazo máximo de progressão e integralização, podendo incorrer\nem desligamento por decurso de prazo.\n§2º Caso o(a) discente repita a condição do §1º por mais de um quadrimestre, poderá ter\nsua matrícula eliminada, no caso de aluno regular ingressante, ou incorrer em abandono, no caso de\naluno regular efetivo."
+                },
+                {
+                    "id": 27,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 27",
+                    "score": 0.782593846321106,
+                    "texto": "Art. 27 Pedidos excepcionais de cancelamento de matrícula em disciplinas da graduação,\nmediante justificativa, deverão ser solicitados pelo(a) discente à ProGrad.\nParágrafo único. A ProGrad ficará responsável pela avaliação, deliberação e comunicação\nda decisão à(ao) discente."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.8
+            },
+            "latencia_retrieval_s": 0.01700620003975928,
+            "latencia_total_s": 2.080474500078708
+        },
+        {
+            "pergunta": "Em quais casos o aluno pode solicitar mudança de turno?",
+            "resposta_esperada": "Em casos de necessidade comprovada, como vínculo empregatício, estágio ou maternidade.",
+            "resposta_modelo": "Segundo o regulamento, o aluno pode solicitar mudança de turno em dois casos:\n\n1. Se for discente cadastrada como mãe de crianças com até 12 (doze) anos de idade (Art. 24);\n2. Se tiver necessidade comprovada por motivos de vínculo empregatício, estágio remunerado ou obrigatório, desde que seja na(s) mesma(s) disciplina(s) (Art. 24).\n\nAlém disso, o deferimento da solicitação está condicionado à existência de vagas na turma no turno pretendido e à comprovação de que a data de início da atividade ou da mudança de horário da atividade tenha ocorrido após a matrícula (Art. 24, §1º).",
+            "artigos_esperados": [
+                "Art. 24"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7288258075714111,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                },
+                {
+                    "id": 24,
+                    "capitulo": "CAPÍTULO VII - Solicitação de transferência de turno de turma",
+                    "artigo": "Art. 24",
+                    "score": 0.7232590317726135,
+                    "texto": "Art. 24 Os(As) discentes poderão solicitar à ProGrad a alteração do turno de sua matrícula\nem turma de determinada disciplina, mediante necessidade comprovada por discentes cadastradas\ncomo mães de crianças com até 12 (doze) anos de idade ou mediante da necessidade comprovada por motivos de vínculo empregatício, estágio remunerado ou obrigatório, desde que seja na(s) mesma(s) disciplina(s).\n§1º O deferimento da solicitação de que trata o caput é condicionado à existência de\nvagas na turma no turno pretendido e à comprovação de que a data de início da atividade ou da\nmudança de horário da atividade tenha ocorrido após a matrícula.\n§2º Caso haja mais de uma solicitação para a mesma vaga, a preferência será dada por\nordem de solicitação.\n§3º Na ausência de vagas ou de turma em horário compatível com a disponibilidade de\nhorário comprovada pelo(a) discente, a matrícula na disciplina será excluída."
+                },
+                {
+                    "id": 9,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 9º",
+                    "score": 0.7219172716140747,
+                    "texto": "Art. 9º A efetivação da solicitação da matrícula na primeira fase de matrículas estará\nsujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos\nlimites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.875
+            },
+            "latencia_retrieval_s": 0.015742600080557168,
+            "latencia_total_s": 3.002518300083466
+        },
+        {
+            "pergunta": "Quando podem ser solicitadas matrículas excepcionais?",
+            "resposta_esperada": "Após o ajuste de matrícula e até cinco dias úteis antes do início do quadrimestre.",
+            "resposta_modelo": "De acordo com o Art. 25 do regulamento, as matrículas excepcionais podem ser solicitadas após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do quadrimestre.",
+            "artigos_esperados": [
+                "Art. 25"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.82757967710495,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                },
+                {
+                    "id": 2,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 2º",
+                    "score": 0.8188627362251282,
+                    "texto": "Art. 2º A solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos\ncursos de graduação da UFABC.\nParágrafo único. O deferimento da solicitação de matrículas está sujeito a critérios de\nacesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e\nV desta Resolução."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8146280646324158,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8888888888888888
+            },
+            "latencia_retrieval_s": 0.016437799902632833,
+            "latencia_total_s": 0.9973064999794587
+        },
+        {
+            "pergunta": "Quem tem vaga garantida quando está em acompanhamento por risco de desligamento?",
+            "resposta_esperada": "Discentes em acompanhamento pela DEAT por prevenção ao risco de desligamento têm vaga garantida nas disciplinas para as quais foram orientados a se matricular, independentemente dos critérios dos Artigos 10 e 11.",
+            "resposta_modelo": "De acordo com o regulamento, os discentes que estão em acompanhamento por risco de desligamento têm vaga garantida. Isso é estabelecido no Art. 13, que prevê que discentes cadastrados como PCD (pessoas com deficiência) tenham vaga garantida nas disciplinas que escolherem, independentemente dos critérios estipulados nos Artigos 10 e 11.",
+            "artigos_esperados": [
+                "Art. 14"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.7524535655975342,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 13,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 13",
+                    "score": 0.7495160102844238,
+                    "texto": "Art. 13 Terão vaga garantida nas disciplinas que escolherem, independente dos critérios estipulados nos Art. 10 e 11:\nI Acessibilidade; Discentes cadastrados(as) como PCD (pessoas com deficiência)\nII - Discentes de mobilidade acadêmica; no Núcleo de Acessibilidade\nIII - Discentes cadastradas como mães de crianças com até 12 (doze) anos de idade."
+                },
+                {
+                    "id": 19,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 19",
+                    "score": 0.7134270071983337,
+                    "texto": "Art. 19 As solicitações serão deferidas conforme disponibilidade de vagas e por ordem de\nrequisição."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.6111111111111112
+            },
+            "latencia_retrieval_s": 0.016982499975711107,
+            "latencia_total_s": 1.6994447999168187
+        },
+        {
+            "pergunta": "O aluno acompanhado pela DEAT precisa seguir os critérios de classificação dos artigos 10 e 11?",
+            "resposta_esperada": "Não. Os discentes acompanhados pela DEAT por risco de desligamento têm vaga garantida nas disciplinas orientadas, independentemente dos critérios estipulados nos Artigos 10 e 11.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido.\n\nO regulamento apenas menciona que os discentes em acompanhamento pela DEAT terão vaga garantida nas disciplinas para as quais foram orientados(as) a se matricular, independente dos critérios estipulados nos Artigos 10 e 11 (Art. 14). Não há menção explícita sobre se esses discentes precisam seguir os critérios de classificação dos artigos 10 e 11 para outras disciplinas.",
+            "artigos_esperados": [
+                "Art. 14"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 14,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 14",
+                    "score": 0.7293948531150818,
+                    "texto": "Art. 14 Discentes em acompanhamento pela Divisão de Ensino e Aprendizagem Tutorial\n(DEAT) por prevenção ao risco de desligamento de acordo com a resolução ConsEPE nº 166 de 2013, ou\noutra que venha substituí-la, terão vaga garantida nas disciplinas para as quais foram orientados(as) a\nse matricular, independente dos critérios estipulados nos Artigos 10 e 11."
+                },
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.698727011680603,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.695647120475769,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.6
+            },
+            "latencia_retrieval_s": 0.01705030002631247,
+            "latencia_total_s": 2.099814899964258
+        },
+        {
+            "pergunta": "Alunos que entraram por transferência externa têm vaga garantida?",
+            "resposta_esperada": "Não. Os discentes admitidos por transferência externa não têm vagas garantidas, mas têm prioridade na classificação em turmas de disciplinas obrigatórias do seu curso, no mesmo turno, no primeiro e no segundo períodos letivos após o ingresso.",
+            "resposta_modelo": "Não, alunos que entraram por transferência externa não têm vaga garantida. Isso é explicitamente estabelecido no Art. 15 do regulamento: \"Os(As) discentes admitidos por transferência externa não terão vagas garantidas...\".",
+            "artigos_esperados": [
+                "Art. 15"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.7732342481613159,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7665493488311768,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.7141469717025757,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.3333333333333333
+            },
+            "latencia_retrieval_s": 0.01730369997676462,
+            "latencia_total_s": 1.1114486999576911
+        },
+        {
+            "pergunta": "Como são classificados os alunos de transferência externa quando há excesso de solicitações em uma turma?",
+            "resposta_esperada": "Havendo excesso de solicitações de matrícula na turma, os discentes admitidos por transferência externa são classificados pela nota do ENEM.",
+            "resposta_modelo": "Segundo o Art. 15, § 1º, caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos por transferência externa serão classificados pela nota do ENEM.",
+            "artigos_esperados": [
+                "Art. 15",
+                "§1º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.797359824180603,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7529710531234741,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 9,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 9º",
+                    "score": 0.7329888343811035,
+                    "texto": "Art. 9º A efetivação da solicitação da matrícula na primeira fase de matrículas estará\nsujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos\nlimites de créditos previstos pelo Art. 8º."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.7857142857142857
+            },
+            "latencia_retrieval_s": 0.018466399982571602,
+            "latencia_total_s": 0.988614899921231
+        },
+        {
+            "pergunta": "Alunos de transferência externa têm prioridade nas disciplinas que não são obrigatórias do curso?",
+            "resposta_esperada": "Não. Para as demais disciplinas, os discentes de transferência externa concorrem com os demais discentes, conforme os critérios dos Artigos 10 e 11.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido. As regras presentes no regulamento não mencionam prioridade para alunos de transferência externa em disciplinas que não são obrigatórias do curso.",
+            "artigos_esperados": [
+                "Art. 15",
+                "§2º"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.7944129705429077,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.7796287536621094,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 10,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 10",
+                    "score": 0.7548825144767761,
+                    "texto": "Art. 10 Nas matrículas em disciplinas ofertadas pelos cursos interdisciplinares de\ningresso, os(as) discentes serão alocados(as) nas vagas considerando os parâmetros\nordenados como segue:\nI - Curso interdisciplinar de ingresso para o qual a disciplina seja obrigatória;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.2727272727272727
+            },
+            "latencia_retrieval_s": 0.015911999973468482,
+            "latencia_total_s": 0.983189299935475
+        },
+        {
+            "pergunta": "A partir de quando vale o novo vínculo de quem fez transferência interna de curso ou de turno?",
+            "resposta_esperada": "O novo vínculo é considerado a partir do período previsto pelo edital do qual o discente participou.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido. O regulamento apenas trata de transferência interna de curso ou de turno e não menciona quando o novo vínculo vale.",
+            "artigos_esperados": [
+                "Art. 16"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.8659158945083618,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.7479267120361328,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.7361688613891602,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.18181818181818182
+            },
+            "latencia_retrieval_s": 0.018095800071023405,
+            "latencia_total_s": 0.8741025000344962
+        },
+        {
+            "pergunta": "Como é considerado o vínculo de alunos matriculados em cursos de formação específica?",
+            "resposta_esperada": "Os discentes que se matricularam em cursos de formação específica têm seu novo vínculo considerado a partir do período previsto pelo edital do qual participaram.",
+            "resposta_modelo": "De acordo com o regulamento, o vínculo de alunos matriculados em cursos de formação específica é considerado a partir do período previsto pelo edital do qual participou, como estabelece o Art. 16.\n\nJá em relação à alocação de vagas em disciplinas ofertadas pelos cursos de formação específica, o Art. 11 estabelece que os discentes serão alocados considerando o vínculo (matrícula ou reserva de vaga) com o curso de formação específica para o qual a disciplina é obrigatória ou de opção limitada, como parâmetro I.",
+            "artigos_esperados": [
+                "Art. 16"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.775295615196228,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                },
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.7645325064659119,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                },
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.7521915435791016,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.7058823529411765
+            },
+            "latencia_retrieval_s": 0.021500700036995113,
+            "latencia_total_s": 2.475517600076273
+        },
+        {
+            "pergunta": "O que acontece com o aluno excedente que teria a matrícula indeferida na turma pedida?",
+            "resposta_esperada": "O discente excedente pode ser remanejado para outra turma de mesmo horário e campus, caso haja vagas disponíveis.",
+            "resposta_modelo": "De acordo com o Art. 17 do regulamento, o aluno excedente que teria a matrícula indeferida na turma pedida poderá ser remanejado para outra turma de mesmo horário e campus, caso haja vagas disponíveis.",
+            "artigos_esperados": [
+                "Art. 17"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.7422870993614197,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 27,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 27",
+                    "score": 0.7348244190216064,
+                    "texto": "Art. 27 Pedidos excepcionais de cancelamento de matrícula em disciplinas da graduação,\nmediante justificativa, deverão ser solicitados pelo(a) discente à ProGrad.\nParágrafo único. A ProGrad ficará responsável pela avaliação, deliberação e comunicação\nda decisão à(ao) discente."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.7326560616493225,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8461538461538461
+            },
+            "latencia_retrieval_s": 0.017001900007016957,
+            "latencia_total_s": 1.0960623000282794
+        },
+        {
+            "pergunta": "E se não houver vagas suficientes em outra turma para todos os alunos excedentes?",
+            "resposta_esperada": "Caso as vagas disponíveis não sejam suficientes, os discentes excedentes são reclassificados de acordo com os critérios dos Artigos 10 e 11.",
+            "resposta_modelo": "Se não houver vagas suficientes em outra turma para todos os alunos excedentes, eles(as) serão reclassificados(as) de acordo com os critérios estabelecidos nos Artigos 10 e 11 (Art. 17, Parágrafo único).",
+            "artigos_esperados": [
+                "Art. 17",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.7188794612884521,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 18,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 18",
+                    "score": 0.6979722380638123,
+                    "texto": "Art. 18 A efetivação da solicitação da matrícula na segunda e na terceira fase de\nmatrículas também estará sujeita ao limite de vagas nas turmas ofertadas conforme planejamento\nacadêmico, assim como aos limites de créditos previstos pelo Art. 8º."
+                },
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.6830042004585266,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 0.017964900005608797,
+            "latencia_total_s": 1.1201488999649882
+        },
+        {
+            "pergunta": "Na segunda e na terceira fase de matrículas existe limite de vagas e de créditos?",
+            "resposta_esperada": "Sim. A efetivação da solicitação de matrícula na segunda e na terceira fase está sujeita ao limite de vagas nas turmas conforme o planejamento acadêmico e aos limites de créditos previstos pelo Art. 8º.",
+            "resposta_modelo": "Sim, existem limites de vagas e de créditos na segunda e terceira fase de matrículas.\n\nA Art. 18 do regulamento estabelece que a efetivação da solicitação de matrícula na segunda e terceira fase estará sujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos limites de créditos previstos pelo Art. 8º.\n\nAlém disso, o Art. 8º do regulamento define o limite máximo de créditos por quadrimestre letivo, que é de \"C = 20 + 2CA\" créditos, com regras específicas para o cálculo desse valor.",
+            "artigos_esperados": [
+                "Art. 18"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 18,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 18",
+                    "score": 0.8496408462524414,
+                    "texto": "Art. 18 A efetivação da solicitação da matrícula na segunda e na terceira fase de\nmatrículas também estará sujeita ao limite de vagas nas turmas ofertadas conforme planejamento\nacadêmico, assim como aos limites de créditos previstos pelo Art. 8º."
+                },
+                {
+                    "id": 9,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 9º",
+                    "score": 0.7737903594970703,
+                    "texto": "Art. 9º A efetivação da solicitação da matrícula na primeira fase de matrículas estará\nsujeita ao limite de vagas nas turmas ofertadas conforme planejamento acadêmico, assim como aos\nlimites de créditos previstos pelo Art. 8º."
+                },
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.773624837398529,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.95
+            },
+            "latencia_retrieval_s": 0.017625900101847947,
+            "latencia_total_s": 2.7852804000722244
+        },
+        {
+            "pergunta": "Como são deferidas as solicitações de matrícula no ajuste e no reajuste?",
+            "resposta_esperada": "As solicitações são deferidas conforme a disponibilidade de vagas e por ordem de requisição.",
+            "resposta_modelo": "Segundo o regulamento, as solicitações de matrícula no ajuste e no reajuste são deferidas com base nos critérios de acesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e V desta Resolução (Art. 2º, Parágrafo único).\n\nJá as solicitações excepcionais de matrículas em disciplinas da graduação devem ser feitas à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do quadrimestre (Art. 25, §1º). Além disso, é importante ressaltar que as solicitações excepcionais de matrícula não serão avaliadas se forem encaminhadas fora dos procedimentos e prazos estabelecidos (Art. 25, §2º).\n\nNão há informações explícitas no regulamento sobre como são deferidas as solicitações de matrícula no ajuste e no reajuste, exceto pela menção aos critérios de acesso e distribuição das vagas.",
+            "artigos_esperados": [
+                "Art. 19"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 2,
+                    "capitulo": "CAPÍTULO I - Dos objetivos",
+                    "artigo": "Art. 2º",
+                    "score": 0.8431671857833862,
+                    "texto": "Art. 2º A solicitação de matrículas poderá ser feita para qualquer disciplina ofertada pelos\ncursos de graduação da UFABC.\nParágrafo único. O deferimento da solicitação de matrículas está sujeito a critérios de\nacesso e distribuição das vagas ofertadas pelos cursos de graduação da UFABC, conforme capítulos IV e\nV desta Resolução."
+                },
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.8336617946624756,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                },
+                {
+                    "id": 5,
+                    "capitulo": "CAPÍTULO II - Fases para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 5º",
+                    "score": 0.8250217437744141,
+                    "texto": "Art. 5º O(A) discente que não solicitar sua matrícula em disciplinas de acordo com as\nfases nos prazos previstos pelo Calendário de Procedimentos Administrativo Acadêmicos perderá o\ndireito de matrícula no período letivo em questão."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.625
+            },
+            "latencia_retrieval_s": 0.016299600014463067,
+            "latencia_total_s": 4.264764299965464
+        },
+        {
+            "pergunta": "O que é o cancelamento de matrícula em uma disciplina?",
+            "resposta_esperada": "É a interrupção das atividades acadêmicas da disciplina a pedido do discente, sem prejuízo das suas demais atividades acadêmicas.",
+            "resposta_modelo": "De acordo com o regulamento, o cancelamento de matrícula em uma disciplina é a interrupção das atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades acadêmicas (Art. 22).\n\nAlém disso, o Art. 23 estabelece as condições para o cancelamento de matrícula em disciplinas, incluindo a necessidade de solicitação até o final da primeira semana do quadrimestre letivo, a impossibilidade de cancelar a mesma disciplina mais de uma vez e a impossibilidade de cancelar disciplinas em que o(a) discente foi anteriormente reprovado(a) por frequência.",
+            "artigos_esperados": [
+                "Art. 22"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.8901422619819641,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 23,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 23",
+                    "score": 0.8764748573303223,
+                    "texto": "Art. 23 O(A) discente terá direito ao cancelamento de quaisquer matrículas em disciplinas\na cada quadrimestre letivo, desde que atendidas as seguintes condições:\nI - A solicitação de cancelamento deverá ser feita até o final da primeira semana do\nquadrimestre letivo, indicando a sua motivação;\nII - O(A) discente só poderá cancelar uma mesma disciplina uma única vez;\nIII - O(A) discente não poderá cancelar a matrícula de disciplinas em que tenha sido\nanteriormente reprovado(a) por frequência.\n§1º O(A) discente que após o cancelamento ficar sem nenhuma matrícula em disciplinas\nterá o quadrimestre computado no seu prazo máximo de progressão e integralização, podendo incorrer\nem desligamento por decurso de prazo.\n§2º Caso o(a) discente repita a condição do §1º por mais de um quadrimestre, poderá ter\nsua matrícula eliminada, no caso de aluno regular ingressante, ou incorrer em abandono, no caso de\naluno regular efetivo."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.8729949593544006,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 1.0
+            },
+            "latencia_retrieval_s": 0.017171400017105043,
+            "latencia_total_s": 2.6833276000106707
+        },
+        {
+            "pergunta": "A disciplina cancelada entra no cálculo do coeficiente de rendimento?",
+            "resposta_esperada": "Não. O cancelamento de matrícula em uma disciplina implica sua não utilização no cálculo dos coeficientes de desempenho definidos em resolução específica.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 22",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 23,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 23",
+                    "score": 0.8175408244132996,
+                    "texto": "Art. 23 O(A) discente terá direito ao cancelamento de quaisquer matrículas em disciplinas\na cada quadrimestre letivo, desde que atendidas as seguintes condições:\nI - A solicitação de cancelamento deverá ser feita até o final da primeira semana do\nquadrimestre letivo, indicando a sua motivação;\nII - O(A) discente só poderá cancelar uma mesma disciplina uma única vez;\nIII - O(A) discente não poderá cancelar a matrícula de disciplinas em que tenha sido\nanteriormente reprovado(a) por frequência.\n§1º O(A) discente que após o cancelamento ficar sem nenhuma matrícula em disciplinas\nterá o quadrimestre computado no seu prazo máximo de progressão e integralização, podendo incorrer\nem desligamento por decurso de prazo.\n§2º Caso o(a) discente repita a condição do §1º por mais de um quadrimestre, poderá ter\nsua matrícula eliminada, no caso de aluno regular ingressante, ou incorrer em abandono, no caso de\naluno regular efetivo."
+                },
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.778505802154541,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.7701697945594788,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.0
+            },
+            "latencia_retrieval_s": 0.015302799991331995,
+            "latencia_total_s": 0.441134599968791
+        },
+        {
+            "pergunta": "Quando uma matrícula excepcional em turma é deferida?",
+            "resposta_esperada": "A solicitação é deferida se o discente atender às condições de elegibilidade do Art. 25 e houver disponibilidade de vagas de acordo com a capacidade da sala ou do laboratório, ou em turma nos mesmos dias, horários e campus.",
+            "resposta_modelo": "De acordo com o regulamento, não há um trecho específico que mencione quando uma matrícula excepcional em turma é deferida. No entanto, é importante notar que o Art. 25 do regulamento estabelece que os pedidos excepcionais de matrículas em disciplinas da graduação devem ser solicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do quadrimestre. Isso sugere que a deferência da matrícula excepcional em turma pode ocorrer após a análise da solicitação pela ProGrad, mas não há um prazo específico mencionado para isso.\n\nPortanto, a resposta é: Não encontrei essa informação de forma explícita no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 26"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 25,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 25",
+                    "score": 0.7489063739776611,
+                    "texto": "Art. 25 Pedidos excepcionais de matrículas em disciplinas da graduação deverão ser\nsolicitados à ProGrad após o ajuste de matrículas e até 5 (cinco) dias úteis antes do início do\nquadrimestre.\n§1º São condições de elegibilidade para a solicitação de matrículas excepcionais:\nI - Ter sua solicitação de matrícula indeferida na disciplina pleiteada na primeira fase de\nmatrículas;\nII - Não ultrapassar o limite de créditos previsto no Art. 8º;\nIII. - Não ter reprovação por frequência na disciplina para a qual solicita matrícula.\n§2º Não serão avaliadas solicitações excepcionais de matrícula encaminhadas fora dos\nprocedimentos e prazos estabelecidos neste artigo."
+                },
+                {
+                    "id": 6,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 6º",
+                    "score": 0.745876133441925,
+                    "texto": "Art. 6º Para poder participar do processo de matrículas, considerando as suas fases, o(a)\ndiscente deverá estar com seu status de matrícula ativo e não poderá ter trancamento previsto para o\nquadrimestre para o qual solicita matrículas."
+                },
+                {
+                    "id": 20,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 20",
+                    "score": 0.7438750267028809,
+                    "texto": "Art. 20 No ajuste de matrículas, o(a) discente poderá excluir disciplinas ou incluir\ndisciplinas nos horários disponíveis em sua grade, desde que não ultrapasse os limites de créditos\nprevistos pelo Art. 8º.\nParágrafo único. O(A) discente que teve sua matrícula deferida em turmas com\nsolicitações igual ou superior a 150% (cento e cinquenta por cento) do número de vagas disponíveis não\npoderá excluí-la no ajuste de matrículas."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3157894736842105
+            },
+            "latencia_retrieval_s": 0.01643120008520782,
+            "latencia_total_s": 3.1744728999910876
+        },
+        {
+            "pergunta": "O deferimento de matrícula excepcional depende da capacidade da sala?",
+            "resposta_esperada": "Sim. Além de atender às condições do Art. 25, é preciso haver vagas de acordo com a capacidade da sala ou do laboratório em que a turma está alocada, ou em turma nos mesmos dias, horários e campus.",
+            "resposta_modelo": "Não encontrei essa informação de forma explícita no regulamento fornecido.",
+            "artigos_esperados": [
+                "Art. 26"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.7249426245689392,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                },
+                {
+                    "id": 12,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 12",
+                    "score": 0.722098708152771,
+                    "texto": "Art. 12 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica,\nserão reservadas 20% (vinte por cento) das vagas aos discentes que não possuam vínculo com o curso\nde formação específica que tenha a disciplina como obrigatória ou de opção limitada em seu PPC,\nconsiderando a preferência, nesta ordem:\nI - Turno de matrícula do curso de ingresso com o qual o(a) discente tem vínculo ou que\ncolou grau;\nII - Coeficiente de Progressão do curso de ingresso com o qual o(a) discente tem vínculo\nou que colou grau, em ordem decrescente;\nIII - Coeficiente de Aproveitamento do curso de ingresso com o qual o(a) discente tem\nvínculo ou que colou grau, em ordem decrescente.\nParágrafo único. Havendo vagas remanescentes destinadas aos(às) discentes sem vínculo\nincisos I a IV do Caput docom curso de formação específica, elas serão aproveitadas de acordo com os incisos I a IV do Caput do Art. 11."
+                },
+                {
+                    "id": 11,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 11",
+                    "score": 0.7184290885925293,
+                    "texto": "Art. 11 Nas matrículas em disciplinas ofertadas pelos cursos de formação específica, os\n(as) discentes serão alocados nas vagas considerando os seguintes parâmetros na ordem que segue:\nI - Vínculo (matrícula ou reserva de vaga) com curso de formação específica para o qual a\ndisciplina é obrigatória ou de opção limitada;\nII - Mesmo turno de matrícula do(a) discente e oferta da disciplina;\nIII - Coeficiente de Progressão, em ordem decrescente;\nIV - Coeficiente de Aproveitamento, em ordem decrescente.\nParágrafo único. A categoria das disciplinas será considerada de acordo com a versão\nmais recente de cada Projeto Pedagógico de Curso (PPC)."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.0
+            },
+            "latencia_retrieval_s": 0.016608500038273633,
+            "latencia_total_s": 0.4497504000319168
+        },
+        {
+            "pergunta": "A quem o aluno deve pedir o cancelamento excepcional de matrícula em disciplina?",
+            "resposta_esperada": "Os pedidos excepcionais de cancelamento, mediante justificativa, devem ser solicitados pelo discente à ProGrad.",
+            "resposta_modelo": "De acordo com o Art. 27 do regulamento, o aluno deve pedir o cancelamento excepcional de matrícula em disciplina à ProGrad, mediante justificativa.",
+            "artigos_esperados": [
+                "Art. 27"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.8372125625610352,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                },
+                {
+                    "id": 27,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 27",
+                    "score": 0.815058171749115,
+                    "texto": "Art. 27 Pedidos excepcionais de cancelamento de matrícula em disciplinas da graduação,\nmediante justificativa, deverão ser solicitados pelo(a) discente à ProGrad.\nParágrafo único. A ProGrad ficará responsável pela avaliação, deliberação e comunicação\nda decisão à(ao) discente."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.8144700527191162,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 0.5,
+                "keyword_recall": 0.4
+            },
+            "latencia_retrieval_s": 0.01666230009868741,
+            "latencia_total_s": 0.7767045000800863
+        },
+        {
+            "pergunta": "Quem avalia e comunica a decisão sobre o cancelamento excepcional de matrícula?",
+            "resposta_esperada": "A ProGrad é responsável pela avaliação, deliberação e comunicação da decisão ao discente.",
+            "resposta_modelo": "De acordo com o Art. 27 do regulamento, a ProGrad é responsável pela avaliação, deliberação e comunicação da decisão sobre o cancelamento excepcional de matrícula.",
+            "artigos_esperados": [
+                "Art. 27",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 27,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 27",
+                    "score": 0.8271868824958801,
+                    "texto": "Art. 27 Pedidos excepcionais de cancelamento de matrícula em disciplinas da graduação,\nmediante justificativa, deverão ser solicitados pelo(a) discente à ProGrad.\nParágrafo único. A ProGrad ficará responsável pela avaliação, deliberação e comunicação\nda decisão à(ao) discente."
+                },
+                {
+                    "id": 21,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 21",
+                    "score": 0.8114330172538757,
+                    "texto": "Art. 21 No reajuste de matrículas, o(a) discente poderá apenas incluir disciplinas à sua\nprogramação de matrículas nos horários disponíveis em sua grade; durante esta fase, não será possível\nexcluir disciplinas.\nParágrafo único. O(A) discente que teve sua matrícula deferida na fase do reajuste de\nmatrículas não poderá cancelá-la, a não ser em casos excepcionais, conforme Art. 27."
+                },
+                {
+                    "id": 22,
+                    "capitulo": "CAPÍTULO VI - Normas para o cancelamento de matrícula em disciplinas dos cursos de graduação na UFABC",
+                    "artigo": "Art. 22",
+                    "score": 0.7930896282196045,
+                    "texto": "Art. 22 Entende-se por cancelamento de matrícula em uma dada disciplina a interrupção\ndas atividades acadêmicas desta, a pedido do(a) discente, sem prejuízo das suas demais atividades\nacadêmicas.\nParágrafo único. O cancelamento de matrícula em uma disciplina implica sua não\nutilização no cálculo dos coeficientes de desempenho definidos em resolução específica."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.875
+            },
+            "latencia_retrieval_s": 0.019110299996100366,
+            "latencia_total_s": 0.8394703000085428
+        },
+        {
+            "pergunta": "Em quais turmas o aproveitamento do aluno pode ser validado?",
+            "resposta_esperada": "Os discentes só têm seu aproveitamento validado nas turmas de disciplinas nas quais tiveram suas solicitações de matrícula deferidas.",
+            "resposta_modelo": "Segundo o Art. 28, o aproveitamento do aluno pode ser validado apenas nas turmas de disciplinas nas quais tiverem suas solicitações de matrículas deferidas.",
+            "artigos_esperados": [
+                "Art. 28"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 28,
+                    "capitulo": "CAPÍTULO IX - Disposições Finais",
+                    "artigo": "Art. 28",
+                    "score": 0.7663806080818176,
+                    "texto": "Art. 28 Os(As) discentes só terão seu aproveitamento validado nas turmas de disciplinas\nnas quais tiverem suas solicitações de matrículas deferidas."
+                },
+                {
+                    "id": 15,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 15",
+                    "score": 0.6757352352142334,
+                    "texto": "Art. 15 Os(As) discentes admitidos por transferência externa não terão vagas garantidas,\nmas terão prioridade na classificação em turmas de disciplinas obrigatórias do seu curso considerando-\nse o mesmo turno, no primeiro e no segundo períodos letivos após seus ingressos.\n§ 1º Caso haja excesso de solicitações de matrículas na turma, os(as) discentes admitidos\npor transferência externa serão classificados pela nota do ENEM.\n§ 2º Para as demais disciplinas, estes(as) discentes concorrerão com os(as) demais\ndiscentes para a ocupação das vagas, conforme os critérios estabelecidos nos Artigos 10 e 11."
+                },
+                {
+                    "id": 8,
+                    "capitulo": "CAPÍTULO III - Normas para a solicitação de matrículas em disciplinas da graduação na UFABC",
+                    "artigo": "Art. 8º",
+                    "score": 0.6734995245933533,
+                    "texto": "Art. 8º O(A) discente poderá solicitar matrícula até o limite máximo de \"C = 20 + 2CA\"\ncréditos por quadrimestre letivo, sendo \"CA\" seu coeficiente de aproveitamento.\n§1º Entende-se por número máximo de créditos a soma do número de horas semanais de\naulas teóricas \"T\" e do número de horas semanais de trabalho de aulas práticas, \"P\", conforme previsto\nno Projeto Pedagógico de cada curso de graduação da UFABC.\n§2º Caso o resultado da equação acima for um valor não inteiro, este deverá ser\narredondado para o primeiro número inteiro superior.\n§3º Não se incluem no valor de \"C\" os créditos correspondentes aos componentes\ncurriculares integralizadores tais como Estágio Curricular, Trabalho de Conclusão de Curso (TCC),\nTrabalho de Graduação (TG) ou Monografias."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.6153846153846154
+            },
+            "latencia_retrieval_s": 0.017945000086911023,
+            "latencia_total_s": 0.8167672000126913
+        },
+        {
+            "pergunta": "Quem decide os casos que a resolução não prevê?",
+            "resposta_esperada": "Os casos omissos são avaliados pela ProGrad.",
+            "resposta_modelo": "Segundo o Art. 29, os casos omissos serão avaliados pela ProGrad.",
+            "artigos_esperados": [
+                "Art. 29"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 29,
+                    "capitulo": "CAPÍTULO IX - Disposições Finais",
+                    "artigo": "Art. 29",
+                    "score": 0.7171838879585266,
+                    "texto": "Art. 29 Casos omissos serão avaliados pela ProGrad"
+                },
+                {
+                    "id": 30,
+                    "capitulo": "CAPÍTULO IX - Disposições Finais",
+                    "artigo": "Art. 30",
+                    "score": 0.7119302153587341,
+                    "texto": "Art. 30 Esta Resolução revoga e substitui a Resolução ConsEPE nº 131, a Resolução\nConsEPE nº 219, a Resolução ConsEPE nº 202, a Portaria ProGrad nº 32 de 2016 e a Portaria ProGrad nº\n33 de 2016."
+                },
+                {
+                    "id": 17,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 17",
+                    "score": 0.6696586012840271,
+                    "texto": "Art. 17 A(O) discente excedente que teria sua matrícula indeferida na turma\noriginalmente solicitada poderá ser remanejado(a) para outra turma de mesmo horário e campus, caso\nhaja vagas disponíveis.\nParágrafo único. Caso as vagas disponíveis não sejam suficientes para alocar todos(as)\nos(as) discentes excedentes, eles(as) serão reclassificados(as) de acordo com os critérios\nestabelecidos nos Artigos 10 e 11."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.8333333333333334
+            },
+            "latencia_retrieval_s": 0.01627979998011142,
+            "latencia_total_s": 0.4493347000097856
+        },
+        {
+            "pergunta": "Quais normas foram revogadas por esta resolução?",
+            "resposta_esperada": "A Resolução revoga e substitui a Resolução ConsEPE nº 131, a Resolução ConsEPE nº 219, a Resolução ConsEPE nº 202, a Portaria ProGrad nº 32 de 2016 e a Portaria ProGrad nº 33 de 2016.",
+            "resposta_modelo": "A resposta à sua pergunta é que não encontrei essa informação de forma explícita no regulamento fornecido. As normas revogadas estão mencionadas no Art. 30 do Capítulo IX, que lista as resoluções e portarias revogadas pela presente resolução.",
+            "artigos_esperados": [
+                "Art. 30"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 30,
+                    "capitulo": "CAPÍTULO IX - Disposições Finais",
+                    "artigo": "Art. 30",
+                    "score": 0.7315577864646912,
+                    "texto": "Art. 30 Esta Resolução revoga e substitui a Resolução ConsEPE nº 131, a Resolução\nConsEPE nº 219, a Resolução ConsEPE nº 202, a Portaria ProGrad nº 32 de 2016 e a Portaria ProGrad nº\n33 de 2016."
+                },
+                {
+                    "id": 19,
+                    "capitulo": "CAPÍTULO V - Condicionantes para o deferimento de solicitações de matrículas na segunda fase de matrículas (ajuste de matrículas) e na terceira fase de matrículas (reajuste de matrículas)",
+                    "artigo": "Art. 19",
+                    "score": 0.6915237903594971,
+                    "texto": "Art. 19 As solicitações serão deferidas conforme disponibilidade de vagas e por ordem de\nrequisição."
+                },
+                {
+                    "id": 26,
+                    "capitulo": "CAPÍTULO VIII - Situações excepcionais de matrículas e cancelamentos",
+                    "artigo": "Art. 26",
+                    "score": 0.6659742593765259,
+                    "texto": "Art. 26 Se o(a) discente atender às condições de elegibilidade do Art. 25 e houver\ndisponibilidade de vagas de acordo com a capacidade da sala ou do laboratório em que a turma está\nalocada, ou ainda em turma nos mesmos dias, horários e campus, a solicitação será deferida."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 0.2222222222222222
+            },
+            "latencia_retrieval_s": 0.016292399959638715,
+            "latencia_total_s": 1.1664800000144169
+        },
+        {
+            "pergunta": "Quando a resolução entra em vigor?",
+            "resposta_esperada": "A Resolução entra em vigor a partir do dia 1º de novembro de 2023, considerando os processos de matrículas e cancelamentos do 1º quadrimestre de 2024.",
+            "resposta_modelo": "De acordo com o Art. 31 do regulamento, a resolução entra em vigor a partir do dia 1º de novembro de 2023, considerando os processos referentes às matrículas e cancelamentos de matrículas do 1º quadrimestre de 2024.",
+            "artigos_esperados": [
+                "Art. 31"
+            ],
+            "chunks_recuperados": [
+                {
+                    "id": 31,
+                    "capitulo": "CAPÍTULO IX - Disposições Finais",
+                    "artigo": "Art. 31",
+                    "score": 0.6909589767456055,
+                    "texto": "Art. 31 Esta Resolução entra em vigor a partir do dia 1º de novembro de 2023,\nconsiderando os processos referentes às matrículas e cancelamentos de matrículas do 1º quadrimestre\nde 2024."
+                },
+                {
+                    "id": 30,
+                    "capitulo": "CAPÍTULO IX - Disposições Finais",
+                    "artigo": "Art. 30",
+                    "score": 0.6486020684242249,
+                    "texto": "Art. 30 Esta Resolução revoga e substitui a Resolução ConsEPE nº 131, a Resolução\nConsEPE nº 219, a Resolução ConsEPE nº 202, a Portaria ProGrad nº 32 de 2016 e a Portaria ProGrad nº\n33 de 2016."
+                },
+                {
+                    "id": 16,
+                    "capitulo": "CAPÍTULO IV- Condicionantes para o deferimento de solicitações de matrículas na primeira fase de matrículas",
+                    "artigo": "Art. 16",
+                    "score": 0.6434032917022705,
+                    "texto": "Art. 16 Discentes que realizaram transferência interna de curso de ingresso e/ou de\nturno, ou que se matricularam em cursos de formação específica, terão seu novo vínculo considerado a\npartir do período previsto pelo edital do qual participou."
+                }
+            ],
+            "metricas": {
+                "recall_at_k": 1,
+                "mrr": 1.0,
+                "keyword_recall": 1.0
+            },
+            "latencia_retrieval_s": 0.014022700022906065,
+            "latencia_total_s": 1.1711891000159085
+        }
+    ]
+}

@@ -1,0 +1,943 @@
+{
+    "configuracao": {
+        "chat_model": "llama3:latest",
+        "embed_model": "mxbai-embed-large:latest",
+        "chunks_file": null,
+        "n_chunks": 0,
+        "dataset_file": "evaluation_dataset.json",
+        "top_k": null,
+        "sem_rag": true,
+        "temperature": 0.2,
+        "max_tokens": 1000,
+        "system_prompt": "\nVocê é um assistente especializado nas regras de matrícula em disciplinas da\ngraduação da UFABC. Responda em português claro e objetivo. Se não souber,\ndiga que não sabe; não invente regras, prazos ou exceções.\n"
+    },
+    "metricas_finais": {
+        "total_perguntas": 56,
+        "recall_at_k_medio": 0,
+        "mrr_medio": 0,
+        "keyword_recall_medio": 0.3515466062513829,
+        "latencia_media_s": 2.601766592877019,
+        "recall_at_k_desvio": 0.0,
+        "mrr_desvio": 0.0,
+        "keyword_recall_desvio": 0.18284705208604005
+    },
+    "resultados": [
+        {
+            "pergunta": "Como funciona a matrícula para alunos ingressantes?",
+            "resposta_esperada": "A matrícula no primeiro quadrimestre letivo de alunos ingressantes é realizada automaticamente pela Pró-Reitoria de Graduação (ProGrad).",
+            "resposta_modelo": "A matrícula para alunos ingressantes na UFABC é um processo que envolve algumas etapas. Aqui estão as informações mais importantes:\n\n1. **Inscrição**: Os alunos ingressantes devem se inscrever no sistema de inscrição da UFABC (Sisu) no prazo estabelecido pela universidade. A inscrição é obrigatória para todos os alunos que desejam estudar na UFABC.\n2. **Verificação de documentos**: Após a inscrição, os alunos devem enviar os documentos necessários, como a cópia do diploma de conclusão do ensino médio, a declaração de frequência e a cópia do RG e CPF, para a UFABC.\n3. **Avaliação de documentos**: A UFABC verifica a autenticidade e a validade dos documentos enviados pelos alunos.\n4. **Matrícula**: Após a verificação dos documentos, os alunos são convidados a realizar a matrícula. A matrícula é feita no sistema de inscrição da UFABC (Sisu) e envolve a confirmação da matrícula na disciplina escolhida.\n5. **Prazo de matrícula**: O prazo de matrícula é estabelecido pela UFABC e é diferente para cada disciplina. Os alunos devem verificar o prazo de matrícula para a disciplina que desejam estudar.\n6. **Matrícula tardia**: Se um aluno não realizar a matrícula no prazo estabelecido, ele pode realizar a matrícula tardia, desde que o prazo seja estabelecido pela UFABC e o aluno pague uma multa.\n7. **Regras específicas**: Cada disciplina pode ter regras específicas para a matrícula. Os alunos devem verificar as regras específicas para a disciplina que desejam estudar.\n\nÉ importante lembrar que as regras e prazos de matrícula podem variar de acordo com a disciplina e o semestre. Os alunos devem verificar as regras e prazos específicos para a disciplina que desejam estudar.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§2º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3333333333333333
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 7.469946500030346
+        },
+        {
+            "pergunta": "O que acontece com a matrícula após o primeiro período do aluno?",
+            "resposta_esperada": "A partir do segundo período letivo, o aluno é responsável por selecionar e se matricular nas disciplinas e turmas ofertadas.",
+            "resposta_modelo": "De acordo com as regras da UFABC, após o primeiro período, a matrícula do aluno é automaticamente renovada para os subsequentes períodos, desde que o aluno esteja regularmente matriculado e não tenha pendências com a instituição.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§3º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.18181818181818182
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 0.948174599907361
+        },
+        {
+            "pergunta": "O aluno ingressante tem alguma vantagem no segundo quadrimestre?",
+            "resposta_esperada": "Sim, no segundo quadrimestre o aluno ingressante tem reserva de matrícula nas disciplinas obrigatórias do curso, respeitando o turno e o projeto pedagógico.",
+            "resposta_modelo": "Sim, os alunos ingressantes têm uma vantagem no segundo quadrimestre. De acordo com as regras de matrícula da UFABC, os ingressantes têm prioridade na matrícula para as disciplinas que forem oferecidas no segundo quadrimestre. Isso significa que eles têm mais chances de obter vagas em disciplinas populares ou com restrições de vagas.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§4º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2857142857142857
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 1.3648517000256106
+        },
+        {
+            "pergunta": "Como são preenchidas as vagas reservadas para ingressantes?",
+            "resposta_esperada": "O preenchimento das vagas reservadas ocorre por ordem de chegada.",
+            "resposta_modelo": "As vagas reservadas para ingressantes na UFABC são preenchidas de acordo com as seguintes regras:\n\n* As vagas reservadas são destinadas a estudantes que tenham sido aprovados em concurso público para ingresso na UFABC, mas não tenham sido matriculados em função de não terem atendido aos requisitos de frequência ou aproveitamento, ou por terem sido reprovados em um curso de graduação da UFABC.\n* Os estudantes que desejam preencher as vagas reservadas devem apresentar um pedido de matrícula e justificar a razão pela qual não foram matriculados anteriormente.\n* A matrícula é realizada mediante sorteio, desde que o estudante atenda aos requisitos de frequência e aproveitamento do curso.\n* É importante ressaltar que as vagas reservadas são limitadas e são preenchidas com prioridade para os estudantes que tenham sido aprovados em concurso público para ingresso na UFABC.\n\nÉ importante lembrar que as regras de matrícula podem variar de acordo com o curso e o semestre, por isso, é sempre recomendável verificar as regras específicas do curso e do semestre em que você está interessado em se matricular.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§4º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3333333333333333
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 4.379796099965461
+        },
+        {
+            "pergunta": "Posso me matricular em qualquer disciplina da graduação?",
+            "resposta_esperada": "Sim, a solicitação de matrícula pode ser feita para qualquer disciplina ofertada, mas está sujeita a critérios de acesso e distribuição de vagas.",
+            "resposta_modelo": "Não. As regras de matrícula em disciplinas da graduação da UFABC são específicas para cada curso e programa. Em geral, as disciplinas são oferecidas para alunos matriculados em cursos específicos ou programas de graduação.\n\nPara se matricular em uma disciplina, é necessário ser aluno regular do curso ou programa ao qual a disciplina está vinculada. Além disso, é importante verificar se a disciplina tem restrições de capacidade ou se é oferecida apenas para alunos em determinado nível de graduação (ex.: apenas para alunos de graduação em ciências ou apenas para alunos de graduação em humanas).\n\nÉ recomendável verificar as regras de matrícula específicas para o seu curso ou programa, bem como as restrições de cada disciplina, antes de se matricular.",
+            "artigos_esperados": [
+                "Art. 2º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.21428571428571427
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 2.8265334999887273
+        },
+        {
+            "pergunta": "A matrícula é sempre garantida quando solicitada?",
+            "resposta_esperada": "Não, o deferimento da matrícula depende de critérios de acesso e da distribuição das vagas disponíveis.",
+            "resposta_modelo": "Sim, a matrícula é sempre garantida quando solicitada para as disciplinas da graduação da UFABC, desde que o estudante atenda aos requisitos de frequência e aproveitamento para a disciplina em questão.",
+            "artigos_esperados": [
+                "Art. 2º",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.125
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 0.823935899999924
+        },
+        {
+            "pergunta": "Quantas fases existem no processo de matrícula?",
+            "resposta_esperada": "O processo de matrícula ocorre em três fases: matrícula, ajuste de matrícula e reajuste de matrícula.",
+            "resposta_modelo": "Segundo as regras da UFABC, o processo de matrícula é composto por 3 fases:\n\n1. Inscrição: É a fase inicial do processo, onde os estudantes se inscrevem para as disciplinas desejadas.\n2. Confirmação: É a fase seguinte, onde os estudantes confirmam suas inscrições e realizam a matrícula.\n3. Matrícula: É a fase final, onde os estudantes realizam a matrícula efetiva, pagando as taxas e formalizando sua matricula.\n\nÉ importante ressaltar que essas fases podem variar dependendo do semestre e do tipo de curso.",
+            "artigos_esperados": [
+                "Art. 3º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.6
+            },
+            "latencia_retrieval_s": 1.100008375942707e-06,
+            "latencia_total_s": 2.3084851000458
+        },
+        {
+            "pergunta": "Quais são as fases do processo de matrícula?",
+            "resposta_esperada": "As fases são: matrícula em disciplinas, ajuste de matrícula em disciplinas e reajuste de matrícula em disciplinas.",
+            "resposta_modelo": "Como assistente especializado nas regras de matrícula em disciplinas da graduação da UFABC, posso informar que o processo de matrícula da UFABC é dividido em três fases:\n\n1. **Inscrição**: É a primeira fase do processo de matrícula, onde os estudantes inscrevem-se para as disciplinas que desejam frequentar. A inscrição é realizada no sistema de inscrição da UFABC e tem prazo determinado, que é publicado anualmente.\n2. **Aprovação**: Após a inscrição, os estudantes que se inscreveram para as disciplinas são submetidos a uma avaliação para verificar se atendem aos requisitos para a matrícula. A aprovação é realizada pela coordenação da disciplina e é baseada em critérios específicos para cada disciplina.\n3. **Matrícula**: A terceira e última fase do processo de matrícula é a matrícula propriamente dita. Os estudantes aprovados para as disciplinas devem realizar a matrícula no sistema de matrícula da UFABC, apresentando os documentos necessários e pagando as taxas de matrícula.\n\nÉ importante ressaltar que essas fases podem variar de acordo com a disciplina e o semestre, portanto, é sempre recomendável verificar as regras específicas da disciplina e do semestre em que você está inscrito.",
+            "artigos_esperados": [
+                "Art. 3º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.8
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 5.123719700030051
+        },
+        {
+            "pergunta": "O que acontece na primeira fase da matrícula?",
+            "resposta_esperada": "Na primeira fase são ofertadas todas as vagas previstas no planejamento de oferta de disciplinas.",
+            "resposta_modelo": "Na primeira fase da matrícula da UFABC, os estudantes que estão inscritos no sistema de matrícula online (SIM) podem realizar a matrícula para as disciplinas que desejam cursar no semestre seguinte. Nessa fase, os estudantes devem:\n\n1. Acessar o SIM e realizar o login com suas credenciais de usuário e senha;\n2. Verificar as disciplinas que estão disponíveis para matrícula e selecionar as que desejam cursar;\n3. Confirmar a matrícula para as disciplinas escolhidas;\n4. Pagar a taxa de matrícula, se for o caso.\n\nA primeira fase da matrícula é geralmente realizada em um prazo determinado, que é definido pela UFABC. Durante essa fase, os estudantes podem realizar a matrícula para as disciplinas que desejam cursar, desde que tenham cumprido os requisitos de frequência e aproveitamento para as disciplinas anteriores.",
+            "artigos_esperados": [
+                "Art. 3º",
+                "§1º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3
+            },
+            "latencia_retrieval_s": 6.00004568696022e-07,
+            "latencia_total_s": 3.5029225000180304
+        },
+        {
+            "pergunta": "O que acontece na fase de ajuste de matrícula?",
+            "resposta_esperada": "Na fase de ajuste são ofertadas as vagas remanescentes da primeira fase, além de vagas de novas turmas ou expansão de oferta.",
+            "resposta_modelo": "Na fase de ajuste de matrícula, os estudantes que não conseguiram matricular-se em suas opções preferidas podem realizar alterações em suas inscrições.\n\nEssa fase é caracterizada por uma análise das solicitações de matrícula e a verificação das vagas disponíveis em cada disciplina. Se houver vagas disponíveis, os estudantes podem realizar alterações em suas inscrições, mudando de disciplina ou curso, desde que atendam aos requisitos de frequência e carga horária.\n\nÉ importante ressaltar que a fase de ajuste de matrícula é uma oportunidade única para os estudantes ajustarem suas inscrições e melhorarem suas opções de curso e disciplina.",
+            "artigos_esperados": [
+                "Art. 3º",
+                "§2º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.35714285714285715
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 2.4617447999771684
+        },
+        {
+            "pergunta": "Quando o aluno faz a solicitação de matrícula?",
+            "resposta_esperada": "A solicitação é feita a cada período letivo, dentro dos prazos definidos pelo calendário administrativo-acadêmico.",
+            "resposta_modelo": "De acordo com as regras da UFABC, o aluno faz a solicitação de matrícula no período de inscrição, que é definido pelo calendário acadêmico da instituição.\n\nNo geral, o período de inscrição é aberto no final do semestre anterior e fecha no início do semestre seguinte. Durante esse período, os alunos podem se inscrever nas disciplinas que desejam cursar no semestre seguinte.\n\nÉ importante verificar o calendário acadêmico da UFABC para saber exatamente quando o período de inscrição está aberto, pois isso pode variar de semestre para semestre.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§1º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.36363636363636365
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 2.1790447999956086
+        },
+        {
+            "pergunta": "Quem é responsável por realizar a matrícula após o primeiro período?",
+            "resposta_esperada": "O próprio aluno é responsável por selecionar e realizar sua matrícula nas disciplinas.",
+            "resposta_modelo": "De acordo com as regras da UFABC, a responsabilidade por realizar a matrícula após o primeiro período é do estudante.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§3º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.25
+            },
+            "latencia_retrieval_s": 8.00006091594696e-07,
+            "latencia_total_s": 0.5084601000417024
+        },
+        {
+            "pergunta": "A matrícula depende de algum planejamento?",
+            "resposta_esperada": "Sim, a matrícula depende do planejamento de oferta de disciplinas e do processo de alocação.",
+            "resposta_modelo": "Sim, a matrícula em disciplinas da graduação da UFABC depende de um planejamento. A UFABC utiliza um sistema de planejamento chamado \"Planejamento de Matrícula\" (PM), que é feito anualmente e define as vagas disponíveis para cada disciplina e turno.\n\nPara saber mais sobre o planejamento de matrícula e como isso afeta a sua matrícula, recomendo verificar o site da UFABC ou consultar o setor de graduação da instituição.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§3º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5714285714285714
+            },
+            "latencia_retrieval_s": 6.00004568696022e-07,
+            "latencia_total_s": 1.7924077999778092
+        },
+        {
+            "pergunta": "O que regula os prazos de matrícula?",
+            "resposta_esperada": "Os prazos são definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos.",
+            "resposta_modelo": "Os prazos de matrícula para disciplinas da graduação da UFABC são regulados pela Portaria Nº 3.001/2019, da Reitoria da UFABC, que estabelece as normas e procedimentos para a matrícula dos estudantes.\n\nDe acordo com essa portaria, os prazos de matrícula variam de acordo com o tipo de disciplina e do período letivo. Em geral, há dois prazos de matrícula: o prazo normal e o prazo especial.\n\nO prazo normal de matrícula é o período em que os estudantes podem se inscrever para as disciplinas sem a necessidade de justificativa especial. Esse prazo é usualmente de uma semana a duas semanas, dependendo da disciplina e do período letivo.\n\nO prazo especial de matrícula é o período em que os estudantes podem se inscrever para as disciplinas com justificativa especial, como doença, viagem ou outras circunstâncias que impeçam a matrícula no prazo normal. Esse prazo é usualmente de uma semana a duas semanas, dependendo da disciplina e do período letivo.\n\nÉ importante ressaltar que os prazos de matrícula podem variar de acordo com a disciplina e o período letivo, e que os estudantes devem verificar os prazos específicos para as disciplinas em que estão interessados em se inscrever.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§1º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.42857142857142855
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 5.007704799994826
+        },
+        {
+            "pergunta": "A matrícula inicial do ingressante exige ação do aluno?",
+            "resposta_esperada": "Não, a matrícula inicial do ingressante é feita automaticamente pela ProGrad.",
+            "resposta_modelo": "Sim, a matrícula inicial do ingressante exige ação do aluno. De acordo com as regras da UFABC, os ingressantes devem realizar a matrícula inicial no prazo estabelecido, que é geralmente no início do semestre. Para isso, é necessário que o aluno realize a inscrição no sistema de matrícula da instituição e pague as taxas de matrícula e outras despesas relacionadas.",
+            "artigos_esperados": [
+                "Art. 1º",
+                "§2º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.42857142857142855
+            },
+            "latencia_retrieval_s": 1.400010660290718e-06,
+            "latencia_total_s": 1.6200587999774143
+        },
+        {
+            "pergunta": "O aluno precisa participar de todas as fases de matrícula?",
+            "resposta_esperada": "Não, as fases de matrícula são independentes e o aluno não é obrigado a participar de todas elas.",
+            "resposta_modelo": "Sim, o aluno precisa participar de todas as fases de matrícula para concluir o processo de matrícula com sucesso.",
+            "artigos_esperados": [
+                "Art. 4º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5555555555555556
+            },
+            "latencia_retrieval_s": 5.00003807246685e-07,
+            "latencia_total_s": 0.5127062000101432
+        },
+        {
+            "pergunta": "Qual solicitação de matrícula é considerada válida em cada fase?",
+            "resposta_esperada": "Apenas a última solicitação de matrícula efetivada e salva no sistema é considerada válida.",
+            "resposta_modelo": "Segundo as regras da UFABC, as solicitações de matrícula são consideradas válidas em cada fase da seguinte maneira:\n\n1. Fase de inscrição: A solicitação de matrícula é considerada válida se o estudante apresentar:\n\t* O formulário de inscrição preenchido corretamente;\n\t* A documentação necessária (comprovante de ensino médio, CPF, etc.);\n\t* A taxa de inscrição paga.\n2. Fase de seleção: A solicitação de matrícula é considerada válida se o estudante for aprovado na seleção e atender às seguintes condições:\n\t* Ter obtido nota mínima necessária para a disciplina;\n\t* Ter apresentado a documentação necessária (comprovante de ensino médio, CPF, etc.);\n\t* Ter pago a taxa de matrícula.\n\nÉ importante ressaltar que essas são as regras gerais e que podem haver exceções específicas para cada disciplina ou curso.",
+            "artigos_esperados": [
+                "Art. 4º",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.4444444444444444
+            },
+            "latencia_retrieval_s": 8.00006091594696e-07,
+            "latencia_total_s": 3.6348981000483036
+        },
+        {
+            "pergunta": "O que acontece se o aluno não solicitar matrícula no prazo?",
+            "resposta_esperada": "O aluno perde o direito de matrícula no período letivo em questão.",
+            "resposta_modelo": "Segundo as regras da UFABC, se o aluno não solicitar matrícula no prazo estabelecido, a matrícula não será efetivada e o estudante não poderá frequentar as aulas.\n\nNo entanto, é importante ressaltar que a UFABC pode considerar solicitações de matrícula tardias em casos específicos, desde que o estudante apresente justificativa plausível para a demora e que a solicitação seja feita até o prazo estabelecido para a matrícula de alunos que não tiveram matrícula efetivada no prazo inicial.\n\nÉ importante lembrar que a política de matrícula da UFABC é regulamentada pela Portaria nº 2.001/2013, que estabelece os prazos e os procedimentos para a matrícula dos estudantes.",
+            "artigos_esperados": [
+                "Art. 5º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2857142857142857
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 3.096039800089784
+        },
+        {
+            "pergunta": "Quais são as condições para o aluno participar do processo de matrícula?",
+            "resposta_esperada": "O aluno deve estar com status de matrícula ativo e não pode ter trancamento previsto para o quadrimestre.",
+            "resposta_modelo": "De acordo com as regras da UFABC, para participar do processo de matrícula, o aluno deve atender às seguintes condições:\n\n1. Ser estudante regular da UFABC, com frequência regular e aproveitamento acadêmico satisfatório;\n2. Ter concluído o curso de graduação anterior ou estar em seu último semestre;\n3. Ter cumprido as obrigações financeiras e acadêmicas previstas no contrato de matrícula anterior;\n4. Ter apresentado a documentação necessária para a matrícula, que inclui:\n\t* Declaração de frequência e aproveitamento acadêmico;\n\t* Comprovante de pagamento da taxa de matrícula;\n\t* Comprovante de pagamento de qualquer outro débito pendente com a UFABC;\n\t* Documentos pessoais (CPF, RG, etc.);\n5. Ter atendido às regras de frequência e aproveitamento acadêmico estabelecidas pela UFABC para o curso de graduação em que deseja se matricular.\n\nÉ importante ressaltar que as regras e procedimentos podem variar dependendo do curso e do semestre, portanto, é recomendável verificar as informações oficiais da UFABC para obter mais detalhes.",
+            "artigos_esperados": [
+                "Art. 6º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.45454545454545453
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 4.294178100069985
+        },
+        {
+            "pergunta": "Como o aluno solicita matrícula nas disciplinas?",
+            "resposta_esperada": "O aluno deve acessar o sistema de matrículas e indicar as turmas desejadas dentro do prazo estipulado.",
+            "resposta_modelo": "A solicitação de matrícula nas disciplinas da graduação da UFABC é feita pelo sistema de matrícula online, chamado \"Matrícula Online\" (MO). Para solicitar matrícula, o aluno precisa seguir os seguintes passos:\n\n1. Acessar o sistema MO com sua senha e CPF;\n2. Selecionar a disciplina desejada e verificar as informações da disciplina, como o período e o horário de aula;\n3. Confirmar a matrícula na disciplina escolhida;\n4. Preencher a declaração de matrícula, se necessário;\n5. Imprimir a confirmação de matrícula, que servirá como comprovante de matrícula.\n\nÉ importante lembrar que a matrícula é obrigatória para todos os alunos da UFABC e que a data limite para solicitar matrícula varia de acordo com o período letivo. Além disso, é recomendável que o aluno verifique as regras e os prazos de matrícula específicos para a sua disciplina e período letivo no site da UFABC ou com o seu orientador acadêmico.",
+            "artigos_esperados": [
+                "Art. 7º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2727272727272727
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 4.073580600088462
+        },
+        {
+            "pergunta": "Existe limite de créditos que o aluno pode cursar?",
+            "resposta_esperada": "Sim, o aluno pode solicitar matrícula até o limite de C = 20 + 2CA créditos por quadrimestre.",
+            "resposta_modelo": "Sim, existe um limite de créditos que o aluno pode cursar em uma única semestre na UFABC. De acordo com a Resolução Nº 02/2018 do Conselho Universitário da UFABC, o aluno pode cursar até 24 créditos em uma única semestre.",
+            "artigos_esperados": [
+                "Art. 8º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 1.021253600018099
+        },
+        {
+            "pergunta": "O que acontece se o cálculo de créditos resultar em número decimal?",
+            "resposta_esperada": "O valor deve ser arredondado para o próximo número inteiro superior.",
+            "resposta_modelo": "Segundo as regras da UFABC, o cálculo de créditos é arredondado para o número inteiro mais próximo. Isso significa que se o resultado for decimal, é considerado o número inteiro mais próximo.",
+            "artigos_esperados": [
+                "Art. 8º",
+                "§2º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5714285714285714
+            },
+            "latencia_retrieval_s": 5.00003807246685e-07,
+            "latencia_total_s": 0.8109628999372944
+        },
+        {
+            "pergunta": "Quais créditos não entram no cálculo do limite de créditos?",
+            "resposta_esperada": "Não são incluídos créditos de estágio, TCC, trabalho de graduação e monografias.",
+            "resposta_modelo": "De acordo com as regras da UFABC, os créditos que não entram no cálculo do limite de créditos são:\n\n* Créditos de disciplinas que não são oferecidas pela UFABC, como cursos de línguas estrangeiras ou disciplinas de outros cursos de graduação;\n* Créditos de disciplinas que não são creditadas pela UFABC, como workshops, cursos de extensão ou cursos de capacitação profissional;\n* Créditos de disciplinas que são oferecidas apenas para alunos de outros cursos de graduação ou de programas de pós-graduação.\n\nEsses créditos não são considerados no cálculo do limite de créditos, pois não são parte do currículo do curso de graduação da UFABC.",
+            "artigos_esperados": [
+                "Art. 8º",
+                "§3º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.375
+            },
+            "latencia_retrieval_s": 6.00004568696022e-07,
+            "latencia_total_s": 2.5407268000999466
+        },
+        {
+            "pergunta": "O que limita a matrícula na primeira fase?",
+            "resposta_esperada": "A matrícula é limitada pela quantidade de vagas disponíveis e pelo limite de créditos do aluno.",
+            "resposta_modelo": "De acordo com as regras da UFABC, a matrícula na primeira fase é limitada pelo número de vagas disponíveis para cada disciplina.",
+            "artigos_esperados": [
+                "Art. 9º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 0.5815826000180095
+        },
+        {
+            "pergunta": "Quais critérios são usados para alocar alunos em disciplinas interdisciplinares?",
+            "resposta_esperada": "Os critérios incluem curso de ingresso, turno, coeficiente de progressão e coeficiente de aproveitamento.",
+            "resposta_modelo": "Para alocar alunos em disciplinas interdisciplinares da graduação da UFABC, os critérios utilizados são:\n\n1. Interesse manifestado: Os alunos que manifestam interesse em participar da disciplina são priorizados;\n2. Conhecimento prévio: Alunos que já possuem conhecimento prévio sobre o tema ou área disciplinar são considerados;\n3. Distribuição equilibrada: A distribuição de alunos por área disciplinar é equilibrada para garantir a diversidade de perspectivas e experiências;\n4. Limites de vagas: A alocação de alunos é feita considerando os limites de vagas disponíveis na disciplina;\n5. Priorização de estudantes de cursos afins: Estudantes de cursos afins à disciplina em questão são priorizados, desde que atendam aos critérios anteriores.\n\nÉ importante ressaltar que esses critérios podem variar dependendo da disciplina e do departamento responsável. Além disso, a UFABC pode estabelecer prazos e procedimentos específicos para a matrícula em disciplinas interdisciplinares.",
+            "artigos_esperados": [
+                "Art. 10"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.1111111111111111
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 3.8346809999784455
+        },
+        {
+            "pergunta": "Quais critérios são usados para alocar alunos em cursos de formação específica?",
+            "resposta_esperada": "São considerados vínculo com o curso, turno, coeficiente de progressão e coeficiente de aproveitamento.",
+            "resposta_modelo": "Segundo as regras da UFABC, a alocação de alunos em cursos de formação específica é feita com base nos seguintes critérios:\n\n1. Prioridade de inscrição: Os alunos que inscreveram-se no curso antes da data limite de inscrição têm prioridade sobre os que se inscreveram após essa data.\n2. Nível de aproveitamento: Os alunos com aproveitamento mais alto na disciplina ou no curso têm prioridade sobre os que têm aproveitamento mais baixo.\n3. Frequência de aulas: Os alunos que frequentam mais aulas têm prioridade sobre os que frequentam menos.\n4. Satisfação dos pré-requisitos: Os alunos que atendem aos pré-requisitos estabelecidos para o curso têm prioridade sobre os que não atendem.\n5. Critérios específicos do curso: Cada curso pode ter critérios específicos para a alocação de alunos, que devem ser estabelecidos e divulgados pelo departamento responsável pelo curso.\n\nÉ importante ressaltar que esses critérios podem variar de acordo com o curso e o departamento responsável, portanto, é sempre recomendável verificar as regras específicas do curso em que você está interessado.",
+            "artigos_esperados": [
+                "Art. 11"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2222222222222222
+            },
+            "latencia_retrieval_s": 5.00003807246685e-07,
+            "latencia_total_s": 4.254932600073516
+        },
+        {
+            "pergunta": "Existe reserva de vagas para alunos sem vínculo com o curso?",
+            "resposta_esperada": "Sim, 20% das vagas são reservadas para alunos sem vínculo com o curso de formação específica.",
+            "resposta_modelo": "Sim, há reserva de vagas para alunos sem vínculo com o curso. De acordo com as regras da UFABC, existem vagas reservadas para alunos de outros cursos ou instituições que desejam matricular-se em disciplinas da graduação da UFABC. Essas vagas são designadas como \"vagas para alunos externos\" e são oferecidas para que estes estudantes possam complementar sua formação ou realizar estudos avançados.",
+            "artigos_esperados": [
+                "Art. 12"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.875
+            },
+            "latencia_retrieval_s": 1.2998934835195541e-06,
+            "latencia_total_s": 1.625650699948892
+        },
+        {
+            "pergunta": "Quem tem vaga garantida independentemente dos critérios?",
+            "resposta_esperada": "Pessoas com deficiência, alunos em mobilidade acadêmica e mães com filhos de até 12 anos têm vaga garantida.",
+            "resposta_modelo": "De acordo com as regras de matrícula da UFABC, os estudantes que têm vaga garantida independentemente dos critérios são os que estão em regime de estágio ou de intercâmbio, desde que tenham sido aprovados pelo Departamento ou pela Pró-Reitoria de Graduação. Além disso, também têm vaga garantida os estudantes que estão em regime de transferência, desde que tenham sido aprovados pelo Departamento ou pela Pró-Reitoria de Graduação.",
+            "artigos_esperados": [
+                "Art. 13"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2727272727272727
+            },
+            "latencia_retrieval_s": 1.100008375942707e-06,
+            "latencia_total_s": 1.7861456000246108
+        },
+        {
+            "pergunta": "O que o aluno pode fazer na fase de ajuste de matrícula?",
+            "resposta_esperada": "O aluno pode incluir ou excluir disciplinas, respeitando o limite de créditos.",
+            "resposta_modelo": "Durante a fase de ajuste de matrícula, o aluno pode realizar as seguintes ações:\n\n1. Confirmar a matrícula: Verificar se a matrícula foi realizada com sucesso e confirmar a inscrição nas disciplinas escolhidas.\n2. Alterar a matrícula: Mudar a disciplina ou o horário de uma disciplina, desde que haja vagas disponíveis e não haja restrições específicas para a disciplina.\n3. Cancelar a matrícula: Cancelar a matrícula em uma disciplina, desde que não haja restrições específicas para a disciplina e não haja compromissos financeiros.\n4. Adicionar disciplinas: Incluir novas disciplinas na matrícula, desde que haja vagas disponíveis e não haja restrições específicas para a disciplina.\n5. Realizar alterações de horário: Mudar o horário de uma disciplina, desde que haja vagas disponíveis e não haja restrições específicas para a disciplina.\n\nÉ importante lembrar que as regras e prazos para a fase de ajuste de matrícula podem variar dependendo do curso e do semestre, portanto, é recomendável verificar as regras específicas do curso e do semestre em que o aluno está inscrito.",
+            "artigos_esperados": [
+                "Art. 20"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 4.646361700026318
+        },
+        {
+            "pergunta": "O que o aluno pode fazer na fase de reajuste de matrícula?",
+            "resposta_esperada": "O aluno pode apenas incluir disciplinas, não sendo permitido excluir.",
+            "resposta_modelo": "Durante a fase de reajuste de matrícula, o aluno pode realizar alterações na sua matrícula, desde que atenda às regras estabelecidas pela UFABC.\n\nAlguns exemplos de ações que o aluno pode realizar durante essa fase:\n\n1. Alterar a carga horária da disciplina;\n2. Mudar de disciplina para outra oferecida pela UFABC;\n3. Cancelar a matrícula em uma disciplina;\n4. Incluir uma disciplina adicional;\n5. Realizar alterações nos dados pessoais ou de contato.\n\nÉ importante lembrar que as alterações devem ser feitas dentro do prazo estabelecido pela UFABC e que o aluno deve atender às regras e procedimentos estabelecidos pela instituição.\n\nSe você tiver alguma dúvida específica sobre a fase de reajuste de matrícula ou precisar de ajuda para realizar uma alteração, é recomendável contatar a Secretaria Acadêmica da UFABC ou o setor responsável pela matrícula.",
+            "artigos_esperados": [
+                "Art. 21"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.375
+            },
+            "latencia_retrieval_s": 8.00006091594696e-07,
+            "latencia_total_s": 3.6229758000699803
+        },
+        {
+            "pergunta": "Até quando o aluno pode cancelar uma matrícula em disciplina?",
+            "resposta_esperada": "O cancelamento deve ser solicitado até o final da primeira semana do quadrimestre.",
+            "resposta_modelo": "De acordo com as regras da UFABC, o aluno pode cancelar uma matrícula em disciplina até o término do prazo de cancelamento, que é o 5º dia de aula, contado a partir do início do período letivo.\n\nEste prazo é estabelecido pela Portaria nº 3.456, de 12 de fevereiro de 2019, que estabelece as normas e procedimentos para a matrícula e cancelamento de matrícula em disciplinas da graduação da UFABC.\n\nPortanto, se o aluno deseja cancelar uma matrícula em disciplina, deve fazê-lo até o 5º dia de aula do período letivo.",
+            "artigos_esperados": [
+                "Art. 23"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2857142857142857
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 2.4930741999996826
+        },
+        {
+            "pergunta": "O aluno pode cancelar a mesma disciplina mais de uma vez?",
+            "resposta_esperada": "Não, o aluno só pode cancelar uma mesma disciplina uma única vez.",
+            "resposta_modelo": "De acordo com as regras de matrícula da UFABC, um aluno pode cancelar uma disciplina apenas uma vez. Após a cancelação, o aluno não pode mais solicitar a cancelação da mesma disciplina.",
+            "artigos_esperados": [
+                "Art. 23"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.8571428571428571
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 0.7987481000600383
+        },
+        {
+            "pergunta": "O que acontece se o aluno ficar sem disciplinas após cancelamento?",
+            "resposta_esperada": "O quadrimestre será contabilizado no prazo máximo e pode levar ao desligamento por decurso de prazo.",
+            "resposta_modelo": "Segundo as regras da UFABC, se um aluno não tiver disciplinas após o cancelamento, ele não estará matriculado em nenhuma disciplina e, portanto, não estará regularmente inscrito no curso.\n\nNesse caso, o aluno não estará mais considerado aluno da UFABC e não terá mais direito a benefícios ou serviços oferecidos pela instituição, como aula, biblioteca, etc.\n\nAlém disso, o aluno também não estará mais vinculado ao curso e não terá mais responsabilidades acadêmicas, como entrega de trabalhos, frequência às aulas, etc.\n\nÉ importante ressaltar que, se o aluno quiser voltar a se matricular em disciplinas, ele precisará seguir o processo de inscrição normal e cumprir os prazos e requisitos estabelecidos pela UFABC.",
+            "artigos_esperados": [
+                "Art. 23",
+                "§1º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.0
+            },
+            "latencia_retrieval_s": 8.00006091594696e-07,
+            "latencia_total_s": 2.956249999930151
+        },
+        {
+            "pergunta": "Em quais casos o aluno pode solicitar mudança de turno?",
+            "resposta_esperada": "Em casos de necessidade comprovada, como vínculo empregatício, estágio ou maternidade.",
+            "resposta_modelo": "De acordo com as regras da UFABC, um aluno pode solicitar mudança de turno em seguintes casos:\n\n1. Mudança de horário de trabalho: Se o aluno tiver uma mudança de horário de trabalho que impossibilite a frequência às aulas no turno original, ele pode solicitar mudança de turno.\n2. Mudança de residência: Se o aluno mudar de residência para um local que esteja mais próximo de uma das faculdades da UFABC, ele pode solicitar mudança de turno.\n3. Motivo de saúde: Se o aluno tiver um motivo de saúde que justifique a mudança de turno, ele pode solicitar mudança de turno.\n4. Mudança de curso ou programa: Se o aluno mudar de curso ou programa, ele pode solicitar mudança de turno.\n\nÉ importante ressaltar que a solicitação de mudança de turno deve ser feita com antecedência razoável e deve ser justificada com documentos comprovatórios, quando necessário. Além disso, a mudança de turno não é automática e depende da análise da solicitação pelo Departamento de Graduação da UFABC.",
+            "artigos_esperados": [
+                "Art. 24"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.125
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 3.9187930000480264
+        },
+        {
+            "pergunta": "Quando podem ser solicitadas matrículas excepcionais?",
+            "resposta_esperada": "Após o ajuste de matrícula e até cinco dias úteis antes do início do quadrimestre.",
+            "resposta_modelo": "De acordo com as regras da UFABC, as matrículas excepcionais podem ser solicitadas em casos específicos e previamente definidos. Segundo a política da instituição, as matrículas excepcionais podem ser solicitadas em situações de:\n\n1. Mudança de curso ou de turno: quando um estudante deseja mudar de curso ou de turno e não há vagas disponíveis na opção desejada;\n2. Reingresso ao curso: quando um estudante foi reprovado e deseja reingressar no curso;\n3. Estudantes com deficiência: quando um estudante tem deficiência e necessita de ajustes para acessibilidade;\n4. Estudantes com responsabilidades familiares: quando um estudante tem responsabilidades familiares que impeçam a frequência regular da disciplina.\n\nPara solicitar uma matrícula excepcional, o estudante deve apresentar justificativa e documentação comprovando a situação que o leva a solicitar a matrícula excepcional. A solicitação deve ser feita até o prazo estabelecido pela UFABC, que é geralmente um prazo anterior ao início do semestre.\n\nÉ importante ressaltar que a solicitação de matrícula excepcional não é automática e depende da análise e aprovação da Comissão de Matrícula da UFABC.",
+            "artigos_esperados": [
+                "Art. 25"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2222222222222222
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 4.845665500033647
+        },
+        {
+            "pergunta": "Quem tem vaga garantida quando está em acompanhamento por risco de desligamento?",
+            "resposta_esperada": "Discentes em acompanhamento pela DEAT por prevenção ao risco de desligamento têm vaga garantida nas disciplinas para as quais foram orientados a se matricular, independentemente dos critérios dos Artigos 10 e 11.",
+            "resposta_modelo": "De acordo com as regras de matrícula da UFABC, os estudantes que estão em acompanhamento por risco de desligamento têm vaga garantida na disciplina, desde que atendam às seguintes condições:\n\n* O estudante esteja regularmente frequentando as aulas e realizando as atividades previstas;\n* O acompanhamento por risco de desligamento seja realizado pelo Departamento de Acompanhamento e Orientação (DAO) da UFABC;\n* O estudante não tenha sido excluído da disciplina por falta de frequência ou aproveitamento.\n\nNesse caso, a vaga é garantida, desde que o estudante cumpra com as condições estabelecidas.",
+            "artigos_esperados": [
+                "Art. 14"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3333333333333333
+            },
+            "latencia_retrieval_s": 9.00006853044033e-07,
+            "latencia_total_s": 2.433246200089343
+        },
+        {
+            "pergunta": "O aluno acompanhado pela DEAT precisa seguir os critérios de classificação dos artigos 10 e 11?",
+            "resposta_esperada": "Não. Os discentes acompanhados pela DEAT por risco de desligamento têm vaga garantida nas disciplinas orientadas, independentemente dos critérios estipulados nos Artigos 10 e 11.",
+            "resposta_modelo": "Sim, os alunos acompanhados pela DEAT (Departamento de Educação Especial e Assistência Tecnológica) precisam seguir os critérios de classificação dos artigos 10 e 11, que estabelecem as regras para a avaliação e classificação das atividades e trabalhos realizados por alunos com deficiência.",
+            "artigos_esperados": [
+                "Art. 14"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3333333333333333
+            },
+            "latencia_retrieval_s": 8.00006091594696e-07,
+            "latencia_total_s": 1.1770903000142425
+        },
+        {
+            "pergunta": "Alunos que entraram por transferência externa têm vaga garantida?",
+            "resposta_esperada": "Não. Os discentes admitidos por transferência externa não têm vagas garantidas, mas têm prioridade na classificação em turmas de disciplinas obrigatórias do seu curso, no mesmo turno, no primeiro e no segundo períodos letivos após o ingresso.",
+            "resposta_modelo": "Sim, os alunos que entraram por transferência externa têm vaga garantida na disciplina em que foram aprovados.",
+            "artigos_esperados": [
+                "Art. 15"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.16666666666666666
+            },
+            "latencia_retrieval_s": 6.998889148235321e-07,
+            "latencia_total_s": 0.46072679990902543
+        },
+        {
+            "pergunta": "Como são classificados os alunos de transferência externa quando há excesso de solicitações em uma turma?",
+            "resposta_esperada": "Havendo excesso de solicitações de matrícula na turma, os discentes admitidos por transferência externa são classificados pela nota do ENEM.",
+            "resposta_modelo": "Segundo as regras de matrícula da UFABC, quando há excesso de solicitações em uma turma, os alunos de transferência externa são classificados da seguinte forma:\n\n* Os alunos de transferência externa que solicitaram a matrícula na UFABC antes da data limite de inscrição são priorizados e têm preferência sobre os demais alunos.\n* Em caso de excesso de solicitações, os alunos de transferência externa são classificados em ordem de chegada das solicitações, considerando a data de entrada da solicitação no sistema.\n* Se houver vagas disponíveis após a classificação, os alunos de transferência externa podem ser matriculados.\n* Se não houver vagas disponíveis, os alunos de transferência externa podem ser incluídos em uma lista de espera, caso tenham sido classificados em ordem de chegada das solicitações.\n\nÉ importante ressaltar que essas regras são aplicadas apenas quando há excesso de solicitações em uma turma e que os alunos de transferência externa são priorizados em relação aos demais alunos.",
+            "artigos_esperados": [
+                "Art. 15",
+                "§1º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5714285714285714
+            },
+            "latencia_retrieval_s": 1.600012183189392e-06,
+            "latencia_total_s": 3.8091367000015453
+        },
+        {
+            "pergunta": "Alunos de transferência externa têm prioridade nas disciplinas que não são obrigatórias do curso?",
+            "resposta_esperada": "Não. Para as demais disciplinas, os discentes de transferência externa concorrem com os demais discentes, conforme os critérios dos Artigos 10 e 11.",
+            "resposta_modelo": "Sim, alunos de transferência externa têm prioridade nas disciplinas que não são obrigatórias do curso. Isso é estabelecido pela política de matrícula da UFABC.",
+            "artigos_esperados": [
+                "Art. 15",
+                "§2º"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2727272727272727
+            },
+            "latencia_retrieval_s": 5.00003807246685e-07,
+            "latencia_total_s": 0.6791613000677899
+        },
+        {
+            "pergunta": "A partir de quando vale o novo vínculo de quem fez transferência interna de curso ou de turno?",
+            "resposta_esperada": "O novo vínculo é considerado a partir do período previsto pelo edital do qual o discente participou.",
+            "resposta_modelo": "De acordo com as regras da UFABC, o novo vínculo de quem fez transferência interna de curso ou de turno é válido a partir do semestre subsequente ao da transferência.\n\nIsso significa que, se alguém fez transferência interna de curso ou de turno em um determinado semestre, o novo vínculo será válido a partir do semestre seguinte. Por exemplo, se alguém fez transferência em outubro de 2022, o novo vínculo será válido a partir do semestre de 2023.",
+            "artigos_esperados": [
+                "Art. 16"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2727272727272727
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 1.8993432000279427
+        },
+        {
+            "pergunta": "Como é considerado o vínculo de alunos matriculados em cursos de formação específica?",
+            "resposta_esperada": "Os discentes que se matricularam em cursos de formação específica têm seu novo vínculo considerado a partir do período previsto pelo edital do qual participaram.",
+            "resposta_modelo": "Segundo as regras da UFABC, os alunos matriculados em cursos de formação específica (CFEs) são considerados vínculos da instituição, desde que atendam aos seguintes critérios:\n\n* Sejam alunos regularmente matriculados em um curso de CFE;\n* Tenham sido aprovados em uma seleção pública ou processos seletivos específicos para ingresso nos CFE;\n* Tenham assinado o Termo de Compromisso de Formação Específica (TCFE), que estabelece as condições de participação e compromisso com a UFABC.\n\nEsses alunos têm direito a utilizar os serviços e benefícios oferecidos pela UFABC, como bibliotecas, laboratórios, transporte estudantil, entre outros. Além disso, estão sujeitos às regras e regulamentações da instituição, incluindo as regras de frequência, aproveitamento e aproveitamento acadêmico.\n\nÉ importante ressaltar que os CFEs são cursos de formação específica, diferenciados dos cursos de graduação tradicionais. Portanto, os alunos matriculados em CFEs têm um vínculo mais estreito com a UFABC e estão sujeitos a regras e regulamentações específicas para esses cursos.",
+            "artigos_esperados": [
+                "Art. 16"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.29411764705882354
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 4.558125999988988
+        },
+        {
+            "pergunta": "O que acontece com o aluno excedente que teria a matrícula indeferida na turma pedida?",
+            "resposta_esperada": "O discente excedente pode ser remanejado para outra turma de mesmo horário e campus, caso haja vagas disponíveis.",
+            "resposta_modelo": "Segundo as regras da UFABC, quando um aluno excedente tem a matrícula indeferida na turma pedida, o aluno é considerado \"excedente\" e não pode ser matriculado naquela turma.\n\nNesse caso, o aluno tem as seguintes opções:\n\n1. Ser reencaminhado para outra turma com vaga disponível, se houver;\n2. Ser alocado para uma turma de reserva, se houver;\n3. Ser notificado para realizar uma nova matrícula, caso tenha interesse em uma outra disciplina ou turma.\n\nÉ importante ressaltar que a UFABC não tem a obrigação de manter o aluno excedente na turma originalmente solicitada.",
+            "artigos_esperados": [
+                "Art. 17"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.38461538461538464
+            },
+            "latencia_retrieval_s": 8.00006091594696e-07,
+            "latencia_total_s": 2.5585656000766903
+        },
+        {
+            "pergunta": "E se não houver vagas suficientes em outra turma para todos os alunos excedentes?",
+            "resposta_esperada": "Caso as vagas disponíveis não sejam suficientes, os discentes excedentes são reclassificados de acordo com os critérios dos Artigos 10 e 11.",
+            "resposta_modelo": "Segundo as regras de matrícula da UFABC, se não houver vagas suficientes em outra turma para todos os alunos excedentes, a instituição segue os seguintes procedimentos:\n\n1. Os alunos excedentes são priorizados para ingressar em uma turma que tenha vagas disponíveis, considerando a ordem de inscrição e a necessidade de acomodação.\n2. Se não houver vagas disponíveis em nenhuma turma, os alunos excedentes podem ser incluídos em uma lista de espera. Nesse caso, a UFABC contata os alunos para informá-los sobre a possibilidade de ingresso em uma turma futura, caso haja vagas disponíveis.\n3. Em caso de não haver vagas disponíveis em nenhuma turma e não haver possibilidade de ingresso em uma lista de espera, a UFABC pode oferecer opções de cursos alternativos ou aulas adicionais, desde que atendam aos requisitos da disciplina e às necessidades dos alunos.\n\nÉ importante ressaltar que as regras de matrícula da UFABC podem variar dependendo do curso, do semestre e das circunstâncias específicas. Portanto, é sempre recomendável verificar as regras e os prazos específicos para o seu curso e semestre.",
+            "artigos_esperados": [
+                "Art. 17",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 6.00004568696022e-07,
+            "latencia_total_s": 4.596753800055012
+        },
+        {
+            "pergunta": "Na segunda e na terceira fase de matrículas existe limite de vagas e de créditos?",
+            "resposta_esperada": "Sim. A efetivação da solicitação de matrícula na segunda e na terceira fase está sujeita ao limite de vagas nas turmas conforme o planejamento acadêmico e aos limites de créditos previstos pelo Art. 8º.",
+            "resposta_modelo": "Sim, na segunda e terceira fase de matrícula da UFABC, há limites de vagas e créditos para as disciplinas.\n\nNa segunda fase, há um limite de vagas para cada disciplina, e os estudantes são ordenados por ordem de prioridade de matrícula. Já na terceira fase, há um limite de créditos que podem ser matriculados, e os estudantes que já possuem mais de 40 créditos não podem matricular-se em disciplinas que ultrapassem esse limite.\n\nÉ importante lembrar que essas regras podem variar de semestre para semestre, então é sempre recomendável verificar as informações oficiais da UFABC antes de fazer suas matrículas.",
+            "artigos_esperados": [
+                "Art. 18"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.4
+            },
+            "latencia_retrieval_s": 6.00004568696022e-07,
+            "latencia_total_s": 2.490595299983397
+        },
+        {
+            "pergunta": "Como são deferidas as solicitações de matrícula no ajuste e no reajuste?",
+            "resposta_esperada": "As solicitações são deferidas conforme a disponibilidade de vagas e por ordem de requisição.",
+            "resposta_modelo": "As solicitações de matrícula no ajuste e no reajuste são deferidas de acordo com as seguintes regras:\n\n**Ajuste:**\n\n* O ajuste é um período de 15 dias após a conclusão do processo de matrícula, durante o qual os estudantes podem solicitar alterações em sua matrícula.\n* Durante o ajuste, os estudantes podem solicitar mudanças em sua matrícula, como alterações em cursos, disciplinas ou modalidades de ensino.\n* As solicitações de ajuste devem ser feitas por meio do sistema de matrícula da UFABC e devem ser aprovadas pelo setor de Matrícula e Registros.\n* O prazo para solicitar ajustes é de 15 dias, contados a partir da data de conclusão do processo de matrícula.\n\n**Reajuste:**\n\n* O reajuste é um período de 5 dias após o ajuste, durante o qual os estudantes podem solicitar alterações adicionais em sua matrícula.\n* Durante o reajuste, os estudantes podem solicitar mudanças em sua matrícula que não foram possíveis durante o ajuste, como alterações em cursos ou disciplinas que não estejam mais disponíveis.\n* As solicitações de reajuste devem ser feitas por meio do sistema de matrícula da UFABC e devem ser aprovadas pelo setor de Matrícula e Registros.\n* O prazo para solicitar reajuste é de 5 dias, contados a partir do final do período de ajuste.\n\nÉ importante ressaltar que as solicitações de ajuste e reajuste são submetidas a análise e aprovação do setor de Matrícula e Registros, e podem ser rejeitadas se não atenderem às regras e procedimentos estabelecidos pela UFABC.",
+            "artigos_esperados": [
+                "Art. 19"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.375
+            },
+            "latencia_retrieval_s": 1.100008375942707e-06,
+            "latencia_total_s": 6.5546844999771565
+        },
+        {
+            "pergunta": "O que é o cancelamento de matrícula em uma disciplina?",
+            "resposta_esperada": "É a interrupção das atividades acadêmicas da disciplina a pedido do discente, sem prejuízo das suas demais atividades acadêmicas.",
+            "resposta_modelo": "No contexto da graduação da UFABC, o cancelamento de matrícula em uma disciplina é o processo pelo qual o estudante decide desistir da matrícula em uma disciplina específica, após ter sido aprovado na mesma.\n\nPara cancelar a matrícula, o estudante deve seguir os procedimentos estabelecidos pela instituição e, em geral, apresentar justificativa para o cancelamento. É importante ressaltar que o cancelamento de matrícula não é automático e depende da análise da solicitação pelo Departamento de Graduação ou pela Pró-Reitoria de Graduação.\n\nÉ importante lembrar que o cancelamento de matrícula pode ter implicações na carreira acadêmica do estudante, como a perda de créditos e a possibilidade de atraso na conclusão do curso. Portanto, é fundamental que o estudante consulte os regulamentos e procedimentos da UFABC antes de cancelar a matrícula em uma disciplina.",
+            "artigos_esperados": [
+                "Art. 22"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.09090909090909091
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 3.4570237000007182
+        },
+        {
+            "pergunta": "A disciplina cancelada entra no cálculo do coeficiente de rendimento?",
+            "resposta_esperada": "Não. O cancelamento de matrícula em uma disciplina implica sua não utilização no cálculo dos coeficientes de desempenho definidos em resolução específica.",
+            "resposta_modelo": "Sim, a disciplina cancelada entra no cálculo do coeficiente de rendimento.",
+            "artigos_esperados": [
+                "Art. 22",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.16666666666666666
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 0.35546160000376403
+        },
+        {
+            "pergunta": "Quando uma matrícula excepcional em turma é deferida?",
+            "resposta_esperada": "A solicitação é deferida se o discente atender às condições de elegibilidade do Art. 25 e houver disponibilidade de vagas de acordo com a capacidade da sala ou do laboratório, ou em turma nos mesmos dias, horários e campus.",
+            "resposta_modelo": "De acordo com as regras da UFABC, uma matrícula excepcional em turma é deferida quando o estudante apresenta motivos justificáveis para não ter sido aprovado na matrícula regular e o Departamento responsável pela disciplina considera que o estudante tem condições de frequentar a turma.\n\nPara que uma matrícula excepcional seja deferida, o estudante deve apresentar um pedido fundamentado e justificado, que seja avaliado pelo Departamento responsável pela disciplina. O Departamento pode solicitar informações adicionais ou justificativas para apoiar o pedido do estudante.\n\nA deferência da matrícula excepcional é decidida pelo Departamento responsável pela disciplina, e o estudante é notificado da decisão.",
+            "artigos_esperados": [
+                "Art. 26"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.21052631578947367
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 2.6622624000301585
+        },
+        {
+            "pergunta": "O deferimento de matrícula excepcional depende da capacidade da sala?",
+            "resposta_esperada": "Sim. Além de atender às condições do Art. 25, é preciso haver vagas de acordo com a capacidade da sala ou do laboratório em que a turma está alocada, ou em turma nos mesmos dias, horários e campus.",
+            "resposta_modelo": "Sim, o deferimento de matrícula excepcional na UFABC depende da capacidade da sala. De acordo com as regras da instituição, a matrícula excepcional é deferida apenas se a capacidade da sala for superior à quantidade de vagas disponíveis.",
+            "artigos_esperados": [
+                "Art. 26"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.21052631578947367
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 1.0222288001095876
+        },
+        {
+            "pergunta": "A quem o aluno deve pedir o cancelamento excepcional de matrícula em disciplina?",
+            "resposta_esperada": "Os pedidos excepcionais de cancelamento, mediante justificativa, devem ser solicitados pelo discente à ProGrad.",
+            "resposta_modelo": "De acordo com as regras da UFABC, o aluno que deseja cancelar excepcionalmente sua matrícula em disciplina deve solicitar ao Departamento da Disciplina ou ao Setor de Graduação do Instituto de Ciências Exatas, Ciências da Terra e Ciências Biológicas (ICEx) ou do Instituto de Ciências Humanas e Filosofia (ICHF), dependendo da área de conhecimento da disciplina.\n\nÉ importante que o aluno apresente justificativa para o cancelamento e que atenda aos critérios estabelecidos pela UFABC para o cancelamento excepcional de matrícula.",
+            "artigos_esperados": [
+                "Art. 27"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.2
+            },
+            "latencia_retrieval_s": 1.00000761449337e-06,
+            "latencia_total_s": 2.153144499985501
+        },
+        {
+            "pergunta": "Quem avalia e comunica a decisão sobre o cancelamento excepcional de matrícula?",
+            "resposta_esperada": "A ProGrad é responsável pela avaliação, deliberação e comunicação da decisão ao discente.",
+            "resposta_modelo": "Segundo as regras da UFABC, a avaliação e comunicação da decisão sobre o cancelamento excepcional de matrícula são realizadas pelo Departamento de Graduação da respectiva área de conhecimento ou pelo Departamento de Graduação da Escola de Ciências Biológicas, dependendo da área de conhecimento da disciplina.\n\nEste processo é regulamentado pela Resolução Nº 02/2019 do Conselho de Graduação da UFABC, que estabelece as normas e procedimentos para o cancelamento excepcional de matrícula em disciplinas da graduação.",
+            "artigos_esperados": [
+                "Art. 27",
+                "Parágrafo único"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.5
+            },
+            "latencia_retrieval_s": 1.300009898841381e-06,
+            "latencia_total_s": 2.0764313000254333
+        },
+        {
+            "pergunta": "Em quais turmas o aproveitamento do aluno pode ser validado?",
+            "resposta_esperada": "Os discentes só têm seu aproveitamento validado nas turmas de disciplinas nas quais tiveram suas solicitações de matrícula deferidas.",
+            "resposta_modelo": "De acordo com as regras de matrícula da UFABC, o aproveitamento do aluno pode ser validado em todas as turmas da graduação, desde que o aluno tenha alcançado o aproveitamento mínimo de 4,0 (quatro) na disciplina.\n\nÉ importante ressaltar que essa regra se aplica a todas as disciplinas da graduação, incluindo as disciplinas obrigatórias, optativas e de livre escolha. Além disso, é fundamental que o aluno tenha cumprido todos os requisitos da disciplina, incluindo a apresentação de trabalhos e a participação em atividades, para que o aproveitamento seja validado.",
+            "artigos_esperados": [
+                "Art. 28"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.38461538461538464
+            },
+            "latencia_retrieval_s": 1.300009898841381e-06,
+            "latencia_total_s": 2.322114400099963
+        },
+        {
+            "pergunta": "Quem decide os casos que a resolução não prevê?",
+            "resposta_esperada": "Os casos omissos são avaliados pela ProGrad.",
+            "resposta_modelo": "Segundo as regras de matrícula da UFABC, casos que a resolução não prevê são decididos pelo Coordenador de Graduação da respectiva área de conhecimento ou pelo Diretor do Departamento, em conjunto com o Coordenador de Graduação, se necessário.",
+            "artigos_esperados": [
+                "Art. 29"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3333333333333333
+            },
+            "latencia_retrieval_s": 1.600012183189392e-06,
+            "latencia_total_s": 1.0177710000425577
+        },
+        {
+            "pergunta": "Quais normas foram revogadas por esta resolução?",
+            "resposta_esperada": "A Resolução revoga e substitui a Resolução ConsEPE nº 131, a Resolução ConsEPE nº 219, a Resolução ConsEPE nº 202, a Portaria ProGrad nº 32 de 2016 e a Portaria ProGrad nº 33 de 2016.",
+            "resposta_modelo": "Como assistente especializado nas regras de matrícula em disciplinas da graduação da UFABC, posso informar que não tenho acesso a informações específicas sobre resoluções ou normas revogadas. Para obter essa informação, sugiro que você consulte o site oficial da UFABC ou o departamento responsável pela matrícula.",
+            "artigos_esperados": [
+                "Art. 30"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.0
+            },
+            "latencia_retrieval_s": 1.200009137392044e-06,
+            "latencia_total_s": 1.2435837000375614
+        },
+        {
+            "pergunta": "Quando a resolução entra em vigor?",
+            "resposta_esperada": "A Resolução entra em vigor a partir do dia 1º de novembro de 2023, considerando os processos de matrículas e cancelamentos do 1º quadrimestre de 2024.",
+            "resposta_modelo": "A resolução de matrícula da UFABC entra em vigor no dia 1º de janeiro do ano letivo subsequente.",
+            "artigos_esperados": [
+                "Art. 31"
+            ],
+            "chunks_recuperados": [],
+            "metricas": {
+                "recall_at_k": 0,
+                "mrr": 0,
+                "keyword_recall": 0.3076923076923077
+            },
+            "latencia_retrieval_s": 7.00005330145359e-07,
+            "latencia_total_s": 0.5044845000375062
+        }
+    ]
+}

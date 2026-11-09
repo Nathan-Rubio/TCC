@@ -1,0 +1,415 @@
+[
+    {
+        "pergunta": "Como funciona a matrícula para alunos ingressantes?",
+        "resposta_esperada": "A matrícula no primeiro quadrimestre letivo de alunos ingressantes é realizada automaticamente pela Pró-Reitoria de Graduação (ProGrad).",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§2º"
+        ]
+    },
+    {
+        "pergunta": "O que acontece com a matrícula após o primeiro período do aluno?",
+        "resposta_esperada": "A partir do segundo período letivo, o aluno é responsável por selecionar e se matricular nas disciplinas e turmas ofertadas.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§3º"
+        ]
+    },
+    {
+        "pergunta": "O aluno ingressante tem alguma vantagem no segundo quadrimestre?",
+        "resposta_esperada": "Sim, no segundo quadrimestre o aluno ingressante tem reserva de matrícula nas disciplinas obrigatórias do curso, respeitando o turno e o projeto pedagógico.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§4º"
+        ]
+    },
+    {
+        "pergunta": "Como são preenchidas as vagas reservadas para ingressantes?",
+        "resposta_esperada": "O preenchimento das vagas reservadas ocorre por ordem de chegada.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§4º"
+        ]
+    },
+    {
+        "pergunta": "Posso me matricular em qualquer disciplina da graduação?",
+        "resposta_esperada": "Sim, a solicitação de matrícula pode ser feita para qualquer disciplina ofertada, mas está sujeita a critérios de acesso e distribuição de vagas.",
+        "artigos_esperados": [
+            "Art. 2º"
+        ]
+    },
+    {
+        "pergunta": "A matrícula é sempre garantida quando solicitada?",
+        "resposta_esperada": "Não, o deferimento da matrícula depende de critérios de acesso e da distribuição das vagas disponíveis.",
+        "artigos_esperados": [
+            "Art. 2º",
+            "Parágrafo único"
+        ]
+    },
+    {
+        "pergunta": "Quantas fases existem no processo de matrícula?",
+        "resposta_esperada": "O processo de matrícula ocorre em três fases: matrícula, ajuste de matrícula e reajuste de matrícula.",
+        "artigos_esperados": [
+            "Art. 3º"
+        ]
+    },
+    {
+        "pergunta": "Quais são as fases do processo de matrícula?",
+        "resposta_esperada": "As fases são: matrícula em disciplinas, ajuste de matrícula em disciplinas e reajuste de matrícula em disciplinas.",
+        "artigos_esperados": [
+            "Art. 3º"
+        ]
+    },
+    {
+        "pergunta": "O que acontece na primeira fase da matrícula?",
+        "resposta_esperada": "Na primeira fase são ofertadas todas as vagas previstas no planejamento de oferta de disciplinas.",
+        "artigos_esperados": [
+            "Art. 3º",
+            "§1º"
+        ]
+    },
+    {
+        "pergunta": "O que acontece na fase de ajuste de matrícula?",
+        "resposta_esperada": "Na fase de ajuste são ofertadas as vagas remanescentes da primeira fase, além de vagas de novas turmas ou expansão de oferta.",
+        "artigos_esperados": [
+            "Art. 3º",
+            "§2º"
+        ]
+    },
+    {
+        "pergunta": "Quando o aluno faz a solicitação de matrícula?",
+        "resposta_esperada": "A solicitação é feita a cada período letivo, dentro dos prazos definidos pelo calendário administrativo-acadêmico.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§1º"
+        ]
+    },
+    {
+        "pergunta": "Quem é responsável por realizar a matrícula após o primeiro período?",
+        "resposta_esperada": "O próprio aluno é responsável por selecionar e realizar sua matrícula nas disciplinas.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§3º"
+        ]
+    },
+    {
+        "pergunta": "A matrícula depende de algum planejamento?",
+        "resposta_esperada": "Sim, a matrícula depende do planejamento de oferta de disciplinas e do processo de alocação.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§3º"
+        ]
+    },
+    {
+        "pergunta": "O que regula os prazos de matrícula?",
+        "resposta_esperada": "Os prazos são definidos pelo Calendário de Procedimentos Administrativo-Acadêmicos.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§1º"
+        ]
+    },
+    {
+        "pergunta": "A matrícula inicial do ingressante exige ação do aluno?",
+        "resposta_esperada": "Não, a matrícula inicial do ingressante é feita automaticamente pela ProGrad.",
+        "artigos_esperados": [
+            "Art. 1º",
+            "§2º"
+        ]
+    },
+    {
+        "pergunta": "O aluno precisa participar de todas as fases de matrícula?",
+        "resposta_esperada": "Não, as fases de matrícula são independentes e o aluno não é obrigado a participar de todas elas.",
+        "artigos_esperados": [
+            "Art. 4º"
+        ]
+    },
+    {
+        "pergunta": "Qual solicitação de matrícula é considerada válida em cada fase?",
+        "resposta_esperada": "Apenas a última solicitação de matrícula efetivada e salva no sistema é considerada válida.",
+        "artigos_esperados": [
+            "Art. 4º",
+            "Parágrafo único"
+        ]
+    },
+    {
+        "pergunta": "O que acontece se o aluno não solicitar matrícula no prazo?",
+        "resposta_esperada": "O aluno perde o direito de matrícula no período letivo em questão.",
+        "artigos_esperados": [
+            "Art. 5º"
+        ]
+    },
+    {
+        "pergunta": "Quais são as condições para o aluno participar do processo de matrícula?",
+        "resposta_esperada": "O aluno deve estar com status de matrícula ativo e não pode ter trancamento previsto para o quadrimestre.",
+        "artigos_esperados": [
+            "Art. 6º"
+        ]
+    },
+    {
+        "pergunta": "Como o aluno solicita matrícula nas disciplinas?",
+        "resposta_esperada": "O aluno deve acessar o sistema de matrículas e indicar as turmas desejadas dentro do prazo estipulado.",
+        "artigos_esperados": [
+            "Art. 7º"
+        ]
+    },
+    {
+        "pergunta": "Existe limite de créditos que o aluno pode cursar?",
+        "resposta_esperada": "Sim, o aluno pode solicitar matrícula até o limite de C = 20 + 2CA créditos por quadrimestre.",
+        "artigos_esperados": [
+            "Art. 8º"
+        ]
+    },
+    {
+        "pergunta": "O que acontece se o cálculo de créditos resultar em número decimal?",
+        "resposta_esperada": "O valor deve ser arredondado para o próximo número inteiro superior.",
+        "artigos_esperados": [
+            "Art. 8º",
+            "§2º"
+        ]
+    },
+    {
+        "pergunta": "Quais créditos não entram no cálculo do limite de créditos?",
+        "resposta_esperada": "Não são incluídos créditos de estágio, TCC, trabalho de graduação e monografias.",
+        "artigos_esperados": [
+            "Art. 8º",
+            "§3º"
+        ]
+    },
+    {
+        "pergunta": "O que limita a matrícula na primeira fase?",
+        "resposta_esperada": "A matrícula é limitada pela quantidade de vagas disponíveis e pelo limite de créditos do aluno.",
+        "artigos_esperados": [
+            "Art. 9º"
+        ]
+    },
+    {
+        "pergunta": "Quais critérios são usados para alocar alunos em disciplinas interdisciplinares?",
+        "resposta_esperada": "Os critérios incluem curso de ingresso, turno, coeficiente de progressão e coeficiente de aproveitamento.",
+        "artigos_esperados": [
+            "Art. 10"
+        ]
+    },
+    {
+        "pergunta": "Quais critérios são usados para alocar alunos em cursos de formação específica?",
+        "resposta_esperada": "São considerados vínculo com o curso, turno, coeficiente de progressão e coeficiente de aproveitamento.",
+        "artigos_esperados": [
+            "Art. 11"
+        ]
+    },
+    {
+        "pergunta": "Existe reserva de vagas para alunos sem vínculo com o curso?",
+        "resposta_esperada": "Sim, 20% das vagas são reservadas para alunos sem vínculo com o curso de formação específica.",
+        "artigos_esperados": [
+            "Art. 12"
+        ]
+    },
+    {
+        "pergunta": "Quem tem vaga garantida independentemente dos critérios?",
+        "resposta_esperada": "Pessoas com deficiência, alunos em mobilidade acadêmica e mães com filhos de até 12 anos têm vaga garantida.",
+        "artigos_esperados": [
+            "Art. 13"
+        ]
+    },
+    {
+        "pergunta": "O que o aluno pode fazer na fase de ajuste de matrícula?",
+        "resposta_esperada": "O aluno pode incluir ou excluir disciplinas, respeitando o limite de créditos.",
+        "artigos_esperados": [
+            "Art. 20"
+        ]
+    },
+    {
+        "pergunta": "O que o aluno pode fazer na fase de reajuste de matrícula?",
+        "resposta_esperada": "O aluno pode apenas incluir disciplinas, não sendo permitido excluir.",
+        "artigos_esperados": [
+            "Art. 21"
+        ]
+    },
+    {
+        "pergunta": "Até quando o aluno pode cancelar uma matrícula em disciplina?",
+        "resposta_esperada": "O cancelamento deve ser solicitado até o final da primeira semana do quadrimestre.",
+        "artigos_esperados": [
+            "Art. 23"
+        ]
+    },
+    {
+        "pergunta": "O aluno pode cancelar a mesma disciplina mais de uma vez?",
+        "resposta_esperada": "Não, o aluno só pode cancelar uma mesma disciplina uma única vez.",
+        "artigos_esperados": [
+            "Art. 23"
+        ]
+    },
+    {
+        "pergunta": "O que acontece se o aluno ficar sem disciplinas após cancelamento?",
+        "resposta_esperada": "O quadrimestre será contabilizado no prazo máximo e pode levar ao desligamento por decurso de prazo.",
+        "artigos_esperados": [
+            "Art. 23",
+            "§1º"
+        ]
+    },
+    {
+        "pergunta": "Em quais casos o aluno pode solicitar mudança de turno?",
+        "resposta_esperada": "Em casos de necessidade comprovada, como vínculo empregatício, estágio ou maternidade.",
+        "artigos_esperados": [
+            "Art. 24"
+        ]
+    },
+    {
+        "pergunta": "Quando podem ser solicitadas matrículas excepcionais?",
+        "resposta_esperada": "Após o ajuste de matrícula e até cinco dias úteis antes do início do quadrimestre.",
+        "artigos_esperados": [
+            "Art. 25"
+        ]
+    },
+    {
+        "pergunta": "Quem tem vaga garantida quando está em acompanhamento por risco de desligamento?",
+        "resposta_esperada": "Discentes em acompanhamento pela DEAT por prevenção ao risco de desligamento têm vaga garantida nas disciplinas para as quais foram orientados a se matricular, independentemente dos critérios dos Artigos 10 e 11.",
+        "artigos_esperados": [
+            "Art. 14"
+        ]
+    },
+    {
+        "pergunta": "O aluno acompanhado pela DEAT precisa seguir os critérios de classificação dos artigos 10 e 11?",
+        "resposta_esperada": "Não. Os discentes acompanhados pela DEAT por risco de desligamento têm vaga garantida nas disciplinas orientadas, independentemente dos critérios estipulados nos Artigos 10 e 11.",
+        "artigos_esperados": [
+            "Art. 14"
+        ]
+    },
+    {
+        "pergunta": "Alunos que entraram por transferência externa têm vaga garantida?",
+        "resposta_esperada": "Não. Os discentes admitidos por transferência externa não têm vagas garantidas, mas têm prioridade na classificação em turmas de disciplinas obrigatórias do seu curso, no mesmo turno, no primeiro e no segundo períodos letivos após o ingresso.",
+        "artigos_esperados": [
+            "Art. 15"
+        ]
+    },
+    {
+        "pergunta": "Como são classificados os alunos de transferência externa quando há excesso de solicitações em uma turma?",
+        "resposta_esperada": "Havendo excesso de solicitações de matrícula na turma, os discentes admitidos por transferência externa são classificados pela nota do ENEM.",
+        "artigos_esperados": [
+            "Art. 15",
+            "§1º"
+        ]
+    },
+    {
+        "pergunta": "Alunos de transferência externa têm prioridade nas disciplinas que não são obrigatórias do curso?",
+        "resposta_esperada": "Não. Para as demais disciplinas, os discentes de transferência externa concorrem com os demais discentes, conforme os critérios dos Artigos 10 e 11.",
+        "artigos_esperados": [
+            "Art. 15",
+            "§2º"
+        ]
+    },
+    {
+        "pergunta": "A partir de quando vale o novo vínculo de quem fez transferência interna de curso ou de turno?",
+        "resposta_esperada": "O novo vínculo é considerado a partir do período previsto pelo edital do qual o discente participou.",
+        "artigos_esperados": [
+            "Art. 16"
+        ]
+    },
+    {
+        "pergunta": "Como é considerado o vínculo de alunos matriculados em cursos de formação específica?",
+        "resposta_esperada": "Os discentes que se matricularam em cursos de formação específica têm seu novo vínculo considerado a partir do período previsto pelo edital do qual participaram.",
+        "artigos_esperados": [
+            "Art. 16"
+        ]
+    },
+    {
+        "pergunta": "O que acontece com o aluno excedente que teria a matrícula indeferida na turma pedida?",
+        "resposta_esperada": "O discente excedente pode ser remanejado para outra turma de mesmo horário e campus, caso haja vagas disponíveis.",
+        "artigos_esperados": [
+            "Art. 17"
+        ]
+    },
+    {
+        "pergunta": "E se não houver vagas suficientes em outra turma para todos os alunos excedentes?",
+        "resposta_esperada": "Caso as vagas disponíveis não sejam suficientes, os discentes excedentes são reclassificados de acordo com os critérios dos Artigos 10 e 11.",
+        "artigos_esperados": [
+            "Art. 17",
+            "Parágrafo único"
+        ]
+    },
+    {
+        "pergunta": "Na segunda e na terceira fase de matrículas existe limite de vagas e de créditos?",
+        "resposta_esperada": "Sim. A efetivação da solicitação de matrícula na segunda e na terceira fase está sujeita ao limite de vagas nas turmas conforme o planejamento acadêmico e aos limites de créditos previstos pelo Art. 8º.",
+        "artigos_esperados": [
+            "Art. 18"
+        ]
+    },
+    {
+        "pergunta": "Como são deferidas as solicitações de matrícula no ajuste e no reajuste?",
+        "resposta_esperada": "As solicitações são deferidas conforme a disponibilidade de vagas e por ordem de requisição.",
+        "artigos_esperados": [
+            "Art. 19"
+        ]
+    },
+    {
+        "pergunta": "O que é o cancelamento de matrícula em uma disciplina?",
+        "resposta_esperada": "É a interrupção das atividades acadêmicas da disciplina a pedido do discente, sem prejuízo das suas demais atividades acadêmicas.",
+        "artigos_esperados": [
+            "Art. 22"
+        ]
+    },
+    {
+        "pergunta": "A disciplina cancelada entra no cálculo do coeficiente de rendimento?",
+        "resposta_esperada": "Não. O cancelamento de matrícula em uma disciplina implica sua não utilização no cálculo dos coeficientes de desempenho definidos em resolução específica.",
+        "artigos_esperados": [
+            "Art. 22",
+            "Parágrafo único"
+        ]
+    },
+    {
+        "pergunta": "Quando uma matrícula excepcional em turma é deferida?",
+        "resposta_esperada": "A solicitação é deferida se o discente atender às condições de elegibilidade do Art. 25 e houver disponibilidade de vagas de acordo com a capacidade da sala ou do laboratório, ou em turma nos mesmos dias, horários e campus.",
+        "artigos_esperados": [
+            "Art. 26"
+        ]
+    },
+    {
+        "pergunta": "O deferimento de matrícula excepcional depende da capacidade da sala?",
+        "resposta_esperada": "Sim. Além de atender às condições do Art. 25, é preciso haver vagas de acordo com a capacidade da sala ou do laboratório em que a turma está alocada, ou em turma nos mesmos dias, horários e campus.",
+        "artigos_esperados": [
+            "Art. 26"
+        ]
+    },
+    {
+        "pergunta": "A quem o aluno deve pedir o cancelamento excepcional de matrícula em disciplina?",
+        "resposta_esperada": "Os pedidos excepcionais de cancelamento, mediante justificativa, devem ser solicitados pelo discente à ProGrad.",
+        "artigos_esperados": [
+            "Art. 27"
+        ]
+    },
+    {
+        "pergunta": "Quem avalia e comunica a decisão sobre o cancelamento excepcional de matrícula?",
+        "resposta_esperada": "A ProGrad é responsável pela avaliação, deliberação e comunicação da decisão ao discente.",
+        "artigos_esperados": [
+            "Art. 27",
+            "Parágrafo único"
+        ]
+    },
+    {
+        "pergunta": "Em quais turmas o aproveitamento do aluno pode ser validado?",
+        "resposta_esperada": "Os discentes só têm seu aproveitamento validado nas turmas de disciplinas nas quais tiveram suas solicitações de matrícula deferidas.",
+        "artigos_esperados": [
+            "Art. 28"
+        ]
+    },
+    {
+        "pergunta": "Quem decide os casos que a resolução não prevê?",
+        "resposta_esperada": "Os casos omissos são avaliados pela ProGrad.",
+        "artigos_esperados": [
+            "Art. 29"
+        ]
+    },
+    {
+        "pergunta": "Quais normas foram revogadas por esta resolução?",
+        "resposta_esperada": "A Resolução revoga e substitui a Resolução ConsEPE nº 131, a Resolução ConsEPE nº 219, a Resolução ConsEPE nº 202, a Portaria ProGrad nº 32 de 2016 e a Portaria ProGrad nº 33 de 2016.",
+        "artigos_esperados": [
+            "Art. 30"
+        ]
+    },
+    {
+        "pergunta": "Quando a resolução entra em vigor?",
+        "resposta_esperada": "A Resolução entra em vigor a partir do dia 1º de novembro de 2023, considerando os processos de matrículas e cancelamentos do 1º quadrimestre de 2024.",
+        "artigos_esperados": [
+            "Art. 31"
+        ]
+    }
+]
